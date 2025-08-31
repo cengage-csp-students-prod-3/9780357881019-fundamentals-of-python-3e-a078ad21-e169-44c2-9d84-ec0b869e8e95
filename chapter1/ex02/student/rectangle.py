@@ -1,5 +1,5 @@
 # Write the code here
-width = int(3)
-height=int(4)
+width = float(input("Enter the width:"))
+height=float(input("Enter the weight:"))
 area = width*height
-print("The area", area , "square units") 
+print("The area is", area) 
