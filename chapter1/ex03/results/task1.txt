@@ -3,25 +3,25 @@ Status: FAILED!
 Check: 1
 Test: Program outputs 30.0 when user inputs 10 and 6
 Reason: Unable to find '['30']' in the program's output.
-The area is  21.0 square units
+The area is  21.0
 .
 Error : AssertionError - Unable to find a number close enough to 30 (+/-0.00) in the program's output.
-Timestamp: 2025-08-31 02:57:51.201131
+Timestamp: 2025-08-31 02:58:38.759050
 
 Status: FAILED!
 Check: 2
 Test: Program outputs 0.25 when user inputs .5 and 1
 Reason: Unable to find '['0.25']' in the program's output.
-The area is  21.0 square units
+The area is  21.0
 .
 Error : AssertionError - Unable to find a number close enough to 0.25 (+/-0.00) in the program's output.
-Timestamp: 2025-08-31 02:57:51.219177
+Timestamp: 2025-08-31 02:58:38.775916
 
 Status: FAILED!
 Check: 3
 Test: Program outputs 280.5 when user inputs 17 and 33
 Reason: Unable to find '['280.5']' in the program's output.
-The area is  21.0 square units
+The area is  21.0
 .
 Error : AssertionError - Unable to find a number close enough to 280.5 (+/-0.00) in the program's output.
-Timestamp: 2025-08-31 02:57:51.238195
+Timestamp: 2025-08-31 02:58:38.792570
