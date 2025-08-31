@@ -1,5 +1,6 @@
 # Write your code here
-base = int(6)
-height= int(7)
-area= float(0.5)* base * height
-print("The area is " , area)
+
+base = float(input("Enter the base: "))
+height = float(input("Enter the height: "))
+area = 0.5 * base * height
+print("The area is", area, "square units.")
