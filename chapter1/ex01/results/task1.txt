@@ -1,80 +1,24 @@
 
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
+Status: PASSED!
+Check: 1
+Test: Print your name.
+Reason: A name was found in the program's output.None
+Timestamp: 2025-08-31 02:23:54.210924
 
-Timestamp: 2025-08-31 02:19:49.021297
+Status: PASSED!
+Check: 2
+Test: Print your address.
+Reason: An address was found in the program's output.None
+Timestamp: 2025-08-31 02:23:54.229729
 
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
+Status: PASSED!
+Check: 3
+Test: Print your phone number.
+Reason: A phone number was found in the program's output.None
+Timestamp: 2025-08-31 02:23:54.247688
 
-Timestamp: 2025-08-31 02:19:49.021403
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.122583
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.122675
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.222425
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.222498
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.321014
-
-Status: FAILED!
-Reason: Unable to run myinfo.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter1/ex01/myinfo.py", line 2, in <module>
-    name = input("ZIYNET AKCA")
-           ^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-08-31 02:19:49.321074
+Status: PASSED!
+Check: 4
+Test: There are three lines of output
+Reason: Three lines of output were found.None
+Timestamp: 2025-08-31 02:23:54.265492
