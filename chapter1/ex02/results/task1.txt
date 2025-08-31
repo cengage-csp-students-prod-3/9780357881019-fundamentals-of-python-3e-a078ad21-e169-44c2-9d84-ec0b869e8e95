@@ -3,13 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs 12.0 when user inputs 2 and 6
 Reason: 12.0 was found in the program's output.None
-Timestamp: 2025-08-31 02:39:52.683693
+Timestamp: 2025-08-31 02:46:17.490751
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Program outputs 6174.0 when user inputs 98 and 63
-Reason: Unable to find '['6174.0']' in the program's output.
-The area 12 square units
-.
-Error : AssertionError - Unable to find a number close enough to 6174.0 (+/-0.00) in the program's output.
-Timestamp: 2025-08-31 02:39:52.700560
+Reason: 6174.0 was found in the program's output.None
+Timestamp: 2025-08-31 02:46:17.507263
