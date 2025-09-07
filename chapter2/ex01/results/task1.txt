@@ -1,18 +1,12 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: Output is rounded to two decimal places.
-Reason: Unable to find '['$-3159.93']' in the program's output.
-Enter the gross income: Enter the number of dependents: The income tax is $ -3159.93
-.
-Error : AssertionError - Unable to find $-3159.93 in the program's output.
-Timestamp: 2025-09-07 23:06:02.907160
+Reason: Output was rounded to two decimal places.None
+Timestamp: 2025-09-07 23:07:43.142268
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Output is rounded to two decimal places.
-Reason: Unable to find '['$880.15']' in the program's output.
-Enter the gross income: Enter the number of dependents: The income tax is $ 880.15
-.
-Error : AssertionError - Unable to find $880.15 in the program's output.
-Timestamp: 2025-09-07 23:06:02.924691
+Reason: Output was rounded to two decimal places.None
+Timestamp: 2025-09-07 23:07:43.159764
