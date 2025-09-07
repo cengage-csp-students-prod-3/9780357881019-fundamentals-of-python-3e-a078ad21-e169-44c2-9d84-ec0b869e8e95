@@ -1,6 +1,6 @@
 """
 Program: taxform.py
-Author: Ziynet Akca
+Author: Your Name
 
 This program computes a person's income tax.
 
@@ -31,5 +31,5 @@ numDependents = int(input("Enter the number of dependents: "))
 taxableIncome = grossIncome - STANDARD_DEDUCTION - (DEPENDENT_DEDUCTION * numDependents)
 incomeTax = taxableIncome * TAX_RATE
 
-# Display the income tax (rounded to 2 decimal places)
-print("The income tax is $", round(incomeTax, 2))
+# Display the income tax (rounded to 2 decimal places, nicely formatted)
+print("The income tax is ${:.2f}".format(incomeTax))
