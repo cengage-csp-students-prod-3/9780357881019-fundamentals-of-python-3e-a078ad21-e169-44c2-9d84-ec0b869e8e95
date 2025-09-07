@@ -1,6 +1,6 @@
 """
 Program: taxform.py
-Author: Your Name
+Author: Ziynet Akca
 
 This program computes a person's income tax.
 
