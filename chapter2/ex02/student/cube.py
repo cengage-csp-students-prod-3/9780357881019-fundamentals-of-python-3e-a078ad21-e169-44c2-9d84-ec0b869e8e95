@@ -18,8 +18,13 @@ Design (pseudocode):
 """
 
 
-edge = 5.0
+# Step 1: Prompt for input
+edge = float(input("Enter the cube's edge: "))
+
+# Step 2: Compute surface area
 surfaceArea = 6 * edge**2
+
+# Step 3: Display the result
 print("The surface area is", surfaceArea, "square units.")
 
 
