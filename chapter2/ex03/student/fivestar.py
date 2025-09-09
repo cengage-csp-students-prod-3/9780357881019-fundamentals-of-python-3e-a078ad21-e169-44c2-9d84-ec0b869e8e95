@@ -34,6 +34,4 @@ oldVideoCost = numOfOldVideo * 2.00
 totalCost = newVideoCost + oldVideoCost
 
 # Display total cost in the exact format expected
-print("Enter the number of new videos: " + str(numOfNewVideo))
-print("Enter the number of oldies: " + str(numOfOldVideo))
 print("The total cost is $" + str(totalCost))
