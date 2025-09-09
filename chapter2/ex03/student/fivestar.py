@@ -15,8 +15,8 @@ totalCost = newVideoCost + oldVideoCost
 Design:
 Design:
 1. Prompt the user to enter number of new videos and old videos.
-2. Calculate cost of new videos: newVideoCost = numOfNewVideo * 3.00
-3. Calculate cost of old videos: oldVideoCost = numOfOldVideo * 2.00
+2. Calculate cost of new videos: newVideoCost = numOfNewVideo * newVideoCostDaily
+3. Calculate cost of old videos: oldVideoCost = numOfOldVideo * oldVideoCostDaily
 4. Compute totalCost = newVideoCost + oldVideoCost
 5. Display totalCost
 
@@ -24,7 +24,9 @@ Design:
 """
 numOfNewVideo = int(input("The number of new videos"))
 numOfOldVideo = int (input("The number of old videos"))
-newVideoCost= numOfNewVideo * 3.00
-oldVideoCost = numOfOldVideo * 2.00
+newVideoCostDaily = int(input("Enter the cost of new video daily"))
+oldVideoCostDaily = int(input("Enter the cost of old video daily"))
+newVideoCost= numOfNewVideo * newVideoCostDaily
+oldVideoCost = numOfOldVideo * oldVideoCostDaily
 totalCost = newVideoCost + oldVideoCost
 print("The total cost is " , str(totalCost))
