@@ -1,80 +1,24 @@
 
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
+Status: PASSED!
+Check: 1
+Test: Outputs '$19.0' when input is 3 and 5
+Reason: Output included '$19.0'None
+Timestamp: 2025-09-09 01:36:40.674033
 
-Timestamp: 2025-09-09 01:33:41.263189
+Status: PASSED!
+Check: 2
+Test: Outputs '$3.0' when input is 1 and 0
+Reason: Output included '$3.0'None
+Timestamp: 2025-09-09 01:36:40.691289
 
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
+Status: PASSED!
+Check: 3
+Test: Outputs '$2.0' when input is 0 and 1
+Reason: Output included '$2.0'None
+Timestamp: 2025-09-09 01:36:40.708379
 
-Timestamp: 2025-09-09 01:33:41.263288
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.364871
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.364944
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.466374
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.466454
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.570477
-
-Status: FAILED!
-Reason: Unable to run fivestar.py
-Error: Traceback (most recent call last):
-  File "/home/runner/work/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/9780357881019-fundamentals-of-python-3e-a078ad21-e169-44c2-9d84-ec0b869e8e95/python/chapter2/ex03/fivestar.py", line 27, in <module>
-    newVideoCostDaily = int(input("Enter the cost of new video daily"))
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-EOFError: EOF when reading a line
-
-Timestamp: 2025-09-09 01:33:41.570555
+Status: PASSED!
+Check: 4
+Test: Outputs '$129.0' when input is 13 and 45
+Reason: Output included '$129.0'None
+Timestamp: 2025-09-09 01:36:40.725420
