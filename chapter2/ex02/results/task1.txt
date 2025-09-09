@@ -1,24 +1,18 @@
 
-Status: FAILED!
+Status: PASSED!
 Check: 1
 Test: Outputs '294 square units' when input is 7
-Reason: Unable to find '['294 square units']' in the program's output.
-The surface area is 150.0 square units.
-.
-Error : AssertionError - 
-Timestamp: 2025-09-09 00:56:00.683644
+Reason: Output included '294 square units'None
+Timestamp: 2025-09-09 00:57:03.642961
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Outputs '54 square units' when input is 3
-Reason: Unable to find '['54 square units']' in the program's output.
-The surface area is 150.0 square units.
-.
-Error : AssertionError - 
-Timestamp: 2025-09-09 00:56:00.701067
+Reason: Output included '54 square units'None
+Timestamp: 2025-09-09 00:57:03.660360
 
 Status: PASSED!
 Check: 3
 Test: Outputs '0 square units' when input is 0
 Reason: Output included '0 square units'None
-Timestamp: 2025-09-09 00:56:00.718435
+Timestamp: 2025-09-09 00:57:03.679817
