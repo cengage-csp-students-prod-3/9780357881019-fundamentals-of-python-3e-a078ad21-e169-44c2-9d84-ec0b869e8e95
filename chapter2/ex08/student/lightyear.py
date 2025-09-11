@@ -27,12 +27,9 @@ DESIGN
 
 years = int(input("Enter the number of years: "))
 
-
 speed_of_light = 3 * 10**8   # meters per second
 seconds_in_year = 365 * 24 * 60 * 60
 
-# Step 3: calculation
 distance = years * speed_of_light * seconds_in_year
 
-# Step 4: output
 print("Light travels", distance, "meters in", years, "years.")
