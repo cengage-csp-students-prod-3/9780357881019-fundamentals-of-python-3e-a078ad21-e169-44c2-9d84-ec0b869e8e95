@@ -2,26 +2,30 @@
 Program: momentum.py
 Author: Ziynet Akca
 
-This program calculates the object`s kinetic energy.
+This program calculates the object's momentum and kinetic energy.
 
 ANALYSIS
-
-The user provides 2 inputs(mass and velocity)
-The program computes the object`s kinetic energy by using the formula KE=(1/2)mv**2
+The user provides 2 inputs (mass and velocity).
+The program computes:
+- Momentum by using the formula: Momentum = mass * velocity
+- Kinetic energy by using the formula: KE = (1/2) * m * v^2
 
 DESIGN
-1. Prompt from the user mass amount
-2.Prompt from the user velocity amount
-3.Calculate momentum by using formula Momentum = mass * velocity
-4.Calculate the object`s kinetic energy by using formula KE=(1/2) mv**2
-5.Display the result
-
+1. Prompt the user for the object's mass.
+2. Prompt the user for the object's velocity.
+3. Calculate momentum with the formula Momentum = mass * velocity.
+4. Calculate kinetic energy with the formula KE = 0.5 * mass * velocity^2.
+5. Display both results clearly.
 """
-mass = float(input ("Enter the object`s mass: "))
-velocity = float (input("Enter the object`s velocity: "))
-momentum= mass*velocity
-print("The object`s momentum is ", str(momentum))
 
-KE= 0.5 * (mass*velocity**2)
+# Input
+mass = float(input("Enter the object's mass (kg): "))
+velocity = float(input("Enter the object's velocity (m/s): "))
 
-print("The object`s kinetic energy is ", str(KE))
+# Calculations
+momentum = mass * velocity
+KE = 0.5 * mass * (velocity ** 2)
+
+# Output
+print("The object's momentum is", momentum, "kg·m/s")
+print("The object's kinetic energy is", KE, "Joules (J)")
