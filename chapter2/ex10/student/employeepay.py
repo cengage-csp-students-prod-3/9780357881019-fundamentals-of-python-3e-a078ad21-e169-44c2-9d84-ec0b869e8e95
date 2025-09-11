@@ -36,4 +36,5 @@ overtime_pay = 1.5 * wage * overtime_hours
 total_pay = regular_pay + overtime_pay
 
 # Step 4: Display the result
-print("The total weekly pay is $", total_pay)
+print(total_pay)
+
