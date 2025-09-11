@@ -1,40 +1,28 @@
 """
 Program: employeepay.py
-Author: Ziynet Akca
-
+Analysis:
 This program calculates an employee's total weekly pay.
+The weekly pay is the hourly wage multiplied by the total number of regular hours
+plus any overtime pay. Overtime pay equals the total overtime hours multiplied
+by 1.5 times the hourly wage.
 
-ANALYSIS:
-The user provides 3 inputs: 
-1. Hourly wage
-2. Total number of regular hours
-3. Total number of overtime hours
-
-The program computes:
-- Regular pay = wage * regular hours
-- Overtime pay = wage * 1.5 * overtime hours
-- Total pay = regular pay + overtime pay
-
-DESIGN:
-1. Prompt the user for hourly wage
-2. Prompt the user for regular hours
-3. Prompt the user for overtime hours
-4. Calculate regular pay and overtime pay
-5. Calculate total pay
-6. Display the result
+Design (Pseudocode):
+1. Prompt the user for hourly wage, regular hours, and overtime hours.
+2. Compute the regular pay = wage * regular_hours.
+3. Compute the overtime pay = overtime_hours * (1.5 * wage).
+4. Compute total pay = regular pay + overtime pay.
+5. Display the total weekly pay with a proper label.
 """
-# Step 1: Get inputs from the user
-wage = float(input("Enter the hourly wage: $"))
+
+# Inputs
+wage = float(input("Enter the wage: $"))
 regular_hours = float(input("Enter the regular hours: "))
 overtime_hours = float(input("Enter the overtime hours: "))
 
-# Step 2: Calculate regular and overtime pay
+# Calculations
 regular_pay = wage * regular_hours
-overtime_pay = 1.5 * wage * overtime_hours
-
-# Step 3: Calculate total pay
+overtime_pay = overtime_hours * (1.5 * wage)
 total_pay = regular_pay + overtime_pay
 
-# Step 4: Display the result
-print(total_pay)
-
+# Output (rounded to 2 decimals)
+print(f"The total weekly pay is ${round(total_pay, 2)}")
