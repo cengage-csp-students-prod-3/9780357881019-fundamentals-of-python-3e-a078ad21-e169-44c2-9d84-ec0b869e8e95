@@ -24,7 +24,6 @@ DESIGN
 5. Display the total distance traveled by light.
 """
 
-# Step 1: input
 years = int(input("Enter the number of years: "))
 
 # Step 2: constants
