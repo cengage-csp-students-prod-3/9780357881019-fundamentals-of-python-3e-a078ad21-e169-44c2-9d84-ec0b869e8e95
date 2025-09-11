@@ -22,6 +22,6 @@ velocity = float (input("Enter the object`s velocity: "))
 momentum= mass*velocity
 print("The object`s momentum is ", str(momentum))
 
-KE= 1/2 * (mass*velocity**2)
+KE= 0.5 * (mass*velocity**2)
 
 print("The object`s kinetic energy is ", str(KE))
