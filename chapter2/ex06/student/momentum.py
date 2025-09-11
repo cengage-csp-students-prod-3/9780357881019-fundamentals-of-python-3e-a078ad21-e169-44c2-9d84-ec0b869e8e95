@@ -18,14 +18,14 @@ DESIGN
 5. Display both results clearly.
 """
 
-# Input
+
 mass = float(input("Enter the object's mass (kg): "))
 velocity = float(input("Enter the object's velocity (m/s): "))
 
-# Calculations
+
 momentum = mass * velocity
 KE = 0.5 * mass * (velocity ** 2)
 
-# Output
+
 print("The object's momentum is", momentum)
 print("The object's kinetic energy is", KE)
