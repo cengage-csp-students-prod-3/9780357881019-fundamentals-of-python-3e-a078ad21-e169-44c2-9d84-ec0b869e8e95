@@ -14,12 +14,12 @@ Design (Pseudocode):
 5. Display the total weekly pay with a proper label.
 """
 
-# Inputs
+
 wage = float(input("Enter the wage: $"))
 regular_hours = float(input("Enter the regular hours: "))
 overtime_hours = float(input("Enter the overtime hours: "))
 
-# Calculations
+
 regular_pay = wage * regular_hours
 overtime_pay = overtime_hours * (1.5 * wage)
 total_pay = regular_pay + overtime_pay
