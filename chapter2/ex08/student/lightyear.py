@@ -27,7 +27,7 @@ DESIGN
 
 years = int(input("Enter the number of years: "))
 
-# Step 2: constants
+
 speed_of_light = 3 * 10**8   # meters per second
 seconds_in_year = 365 * 24 * 60 * 60
 
