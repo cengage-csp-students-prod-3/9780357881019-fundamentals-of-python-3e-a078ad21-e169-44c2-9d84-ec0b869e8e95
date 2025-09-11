@@ -27,5 +27,5 @@ momentum = mass * velocity
 KE = 0.5 * mass * (velocity ** 2)
 
 # Output
-print("The object's momentum is", momentum, "kg·m/s")
-print("The object's kinetic energy is", KE, "Joules (J)")
+print("The object's momentum is", momentum)
+print("The object's kinetic energy is", KE)
