@@ -24,5 +24,5 @@ regular_pay = wage * regular_hours
 overtime_pay = overtime_hours * (1.5 * wage)
 total_pay = regular_pay + overtime_pay
 
-# Output (rounded to 2 decimals)
+
 print(f"The total weekly pay is ${round(total_pay, 2)}")
