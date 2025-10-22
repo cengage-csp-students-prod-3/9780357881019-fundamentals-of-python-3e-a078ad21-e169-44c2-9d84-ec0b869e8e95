@@ -1,4 +1,3 @@
-# bouncy.py
 
 height = float(input("Enter the height from which the ball is dropped: "))
 bounciness = float(input("Enter the bounciness index of the ball: "))
