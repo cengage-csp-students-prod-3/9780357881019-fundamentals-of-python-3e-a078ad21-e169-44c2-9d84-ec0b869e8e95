@@ -1,4 +1,3 @@
-# population.py
 
 initial = int(input("Enter the initial number of organisms: "))
 rate = float(input("Enter the rate of growth [a real number > 1]: "))
