@@ -3,16 +3,16 @@ Status: PASSED!
 Check: 1
 Test: Program outputs '4.0' when user inputs 1
 Reason: '4.0' was found in the program's output.None
-Timestamp: 2025-10-22 02:01:28.907519
+Timestamp: 2025-10-22 02:02:00.812086
 
 Status: PASSED!
 Check: 2
 Test: Program outputs '3.46' when user inputs 3
 Reason: '3.46' was found in the program's output.None
-Timestamp: 2025-10-22 02:01:28.925351
+Timestamp: 2025-10-22 02:02:00.829425
 
 Status: PASSED!
 Check: 3
 Test: Program outputs '3.04183' when user inputs 10
 Reason: '3.04183' was found in the program's output.None
-Timestamp: 2025-10-22 02:01:28.943071
+Timestamp: 2025-10-22 02:02:00.846830
