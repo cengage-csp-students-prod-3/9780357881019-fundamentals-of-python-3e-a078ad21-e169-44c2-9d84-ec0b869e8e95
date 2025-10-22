@@ -8,6 +8,9 @@ total_distance = height
 
 for i in range(bounces):
     height *= bounciness
-    total_distance += 2 * height
+    if i == bounces - 1:
+        total_distance += height
+    else:
+        total_distance += 2 * height
 
 print("Total distance traveled is:", total_distance, "units.")
