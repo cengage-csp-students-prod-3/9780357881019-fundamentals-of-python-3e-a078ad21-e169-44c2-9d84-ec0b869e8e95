@@ -1,49 +1,48 @@
 # tidbit.py
-def main():
-    price_input = input("Enter the purchase price: ")
-    try:
-        price = float(price_input)
-        if price <= 0:
-            raise ValueError
-    except ValueError:
-        print("Please enter a positive numeric purchase price.")
-        return
 
-    down_payment_rate = 0.10          # 10% down
-    annual_rate = 0.12                # 12% annual interest
-    monthly_payment_rate = 0.05       # 5% of listed purchase price (fixed each month)
+price = float(input("Enter the purchase price: "))
 
-    down_payment = price * down_payment_rate
-    balance = price - down_payment
-    monthly_payment = price * monthly_payment_rate
+# constants from the problem
+down_payment = round(price * 0.10, 2)
+balance = round(price - down_payment, 2)
+monthly_payment = round(price * 0.05, 2)
+monthly_rate = 0.12 / 12  # monthly interest rate
 
-    # Print header
-    print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
+# header (must match exactly)
+print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
 
-    month = 1
-    # Loop until balance is essentially zero
-    while balance > 0.0005:
-        starting_balance = balance
-        interest = starting_balance * annual_rate / 12.0
+month = 1
+# iterate until the balance reaches zero
+while balance > 0:
+    # compute interest on the current starting balance (rounded to 2 decimals)
+    interest = round(balance * monthly_rate, 2)
 
-        # If the regular payment would pay more than remaining balance+interest,
-        # make a final adjusted payment so ending balance becomes exactly zero.
-        if monthly_payment >= starting_balance + interest - 1e-12:
-            principal = starting_balance
-            payment = interest + principal
-            ending_balance = 0.0
-        else:
-            payment = monthly_payment
-            principal = payment - interest
-            ending_balance = starting_balance - principal
+    # compute principal portion as payment minus interest
+    principal = round(monthly_payment - interest, 2)
 
-        # Print row with two-decimal alignment matching the example
-        print(f"{month:2d} {starting_balance:15.2f} {interest:17.2f} {principal:17.2f} {payment:9.2f} {ending_balance:15.2f}")
+    # If the standard monthly payment is greater than the remaining balance,
+    # adjust the final payment and principal so the loan finishes at 0.00.
+    if monthly_payment >= balance:
+        # final payment equals the remaining balance
+        payment = round(balance, 2)
+        # For display, compute interest on the current balance (rounded).
+        # Then principal is payment - interest (but ensure non-negative).
+        # If this would produce a negative principal because interest > payment,
+        # set interest to the rounded monthly interest and principal to the remainder (or the balance).
+        interest = round(balance * monthly_rate, 2)
+        principal = round(payment - interest, 2)
+        # If rounding makes principal negative (rare), clamp it to balance and set interest = payment - principal
+        if principal < 0:
+            principal = round(balance, 2)
+            interest = round(payment - principal, 2)
+        ending_balance = 0.00
+    else:
+        payment = monthly_payment
+        ending_balance = round(balance - payment, 2)
 
-        # prepare next month
-        balance = ending_balance
-        month += 1
+    # Print formatted row to match the example layout
+    print(f"{month:2d}         {balance:7.2f}          {interest:5.2f}            {principal:6.2f}        {payment:6.2f}         {ending_balance:7.2f}")
 
-
-if __name__ == "__main__":
-    main()
+    # prepare for next month
+    balance = ending_balance
+    month += 1
