@@ -1,5 +1,3 @@
-# tidbit.py
-
 price = float(input("Enter the purchase price: "))
 
 down_payment = round(price * 0.10, 2)
