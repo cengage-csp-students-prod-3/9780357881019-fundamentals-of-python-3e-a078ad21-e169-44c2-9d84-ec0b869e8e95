@@ -23,7 +23,7 @@ Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Bala
 17          80.00           0.80            39.20            40.00            40.00
 18          40.00           0.40            39.60            40.00             0.00
 Error : AssertionError - 
-Timestamp: 2025-10-25 17:21:08.973860
+Timestamp: 2025-10-25 17:22:46.130623
 
 Status: FAILED!
 Check: 2
@@ -48,4 +48,4 @@ Reason: Output from code did not match:
 17         129.90           1.30            63.65            64.95            64.95
 18          64.95           0.00            64.95            64.95             0.00
 Error : AssertionError - 
-Timestamp: 2025-10-25 17:21:09.001773
+Timestamp: 2025-10-25 17:22:46.150297
