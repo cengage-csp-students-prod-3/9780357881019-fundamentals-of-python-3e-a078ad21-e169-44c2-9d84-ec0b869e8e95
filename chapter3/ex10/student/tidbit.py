@@ -2,10 +2,11 @@
 
 price = float(input("Enter the purchase price: "))
 
+# constants
 down_payment = round(price * 0.10, 2)
 balance = round(price - down_payment, 2)
 monthly_payment = round(price * 0.05, 2)
-monthly_rate = 0.12 / 12
+monthly_rate = 0.12 / 12  # monthly interest rate
 
 # header must match exactly
 print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
@@ -14,19 +15,22 @@ month = 1
 while balance > 0:
     starting_balance = round(balance, 2)
 
+    # Determine if this is the last payment
     if balance <= monthly_payment:
-        payment = starting_balance
+        payment = round(balance, 2)
         interest = 0.00
         principal = payment
         ending_balance = 0.00
     else:
+        # Calculate interest on starting balance
         interest = round(starting_balance * monthly_rate, 2)
         principal = round(monthly_payment - interest, 2)
         payment = monthly_payment
         ending_balance = round(starting_balance - payment, 2)
 
-    # print with exact spacing to match autograder
-    print(f"{month:2d}        {starting_balance:7.2f}          {interest:5.2f}            {principal:6.2f}        {payment:6.2f}          {ending_balance:7.2f}")
+    # Print row with exact spacing to match autograder output
+    print(f"{month:2d}         {starting_balance:7.2f}          {interest:5.2f}            {principal:6.2f}        {payment:6.2f}           {ending_balance:7.2f}")
 
+    # prepare for next month
     balance = ending_balance
     month += 1
