@@ -1,63 +1,49 @@
 # tidbit.py
+def main():
+    price_input = input("Enter the purchase price: ")
+    try:
+        price = float(price_input)
+        if price <= 0:
+            raise ValueError
+    except ValueError:
+        print("Please enter a positive numeric purchase price.")
+        return
 
-from decimal import Decimal, ROUND_HALF_UP, getcontext
+    down_payment_rate = 0.10          # 10% down
+    annual_rate = 0.12                # 12% annual interest
+    monthly_payment_rate = 0.05       # 5% of listed purchase price (fixed each month)
 
-# Daha güvenilir finansal yuvarlama için Decimal kullanıyoruz
-getcontext().prec = 28
+    down_payment = price * down_payment_rate
+    balance = price - down_payment
+    monthly_payment = price * monthly_payment_rate
 
-price = Decimal(input("Enter the purchase price: ").strip())
+    # Print header
+    print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
 
-down_payment = (price * Decimal("0.10")).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-balance = (price - down_payment).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-monthly_payment = (price * Decimal("0.05")).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-monthly_rate = Decimal("0.12") / Decimal("12")  # = 0.01
+    month = 1
+    # Loop until balance is essentially zero
+    while balance > 0.0005:
+        starting_balance = balance
+        interest = starting_balance * annual_rate / 12.0
 
-# Header (uygulamadaki örnekle aynı)
-print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
+        # If the regular payment would pay more than remaining balance+interest,
+        # make a final adjusted payment so ending balance becomes exactly zero.
+        if monthly_payment >= starting_balance + interest - 1e-12:
+            principal = starting_balance
+            payment = interest + principal
+            ending_balance = 0.0
+        else:
+            payment = monthly_payment
+            principal = payment - interest
+            ending_balance = starting_balance - principal
 
-month = 1
-while balance > Decimal("0.00"):
-    # interest ve principal hesapları (Decimal, 2 ondalık)
-    interest = (balance * monthly_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-    principal = (monthly_payment - interest).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+        # Print row with two-decimal alignment matching the example
+        print(f"{month:2d} {starting_balance:15.2f} {interest:17.2f} {principal:17.2f} {payment:9.2f} {ending_balance:15.2f}")
 
-    # normal durumda ödeme monthly_payment; son taksit için ayarlama:
-    if monthly_payment >= balance:
-        # tentative final payment = balance
-        payment = balance
-        # yeniden hesapla interest (üzerinden alınan faiz) ve principal
-        interest = (balance * monthly_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-        principal = (payment - interest).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+        # prepare next month
+        balance = ending_balance
+        month += 1
 
-        # eğer yuvarlama nedeniyle principal negatifse düzelt
-        if principal < Decimal("0.00"):
-            principal = payment
-            interest = Decimal("0.00")
 
-        # ending balance tentative
-        ending = (balance - principal).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-
-        # --- Hedefe yönelik düzeltme (grader örneklerine uyum için) ---
-        # Eğer ending ~ 0.00 olduysa ve faiz kısmı payment - principal (yani ödeme içindeki faiz)
-        # makul bir eşikten (>0.50) büyükse, örnekte görüldüğü gibi son satırda
-        # faiz 0.00, principal = payment gösteriliyor. Bu, grader örneğindeki
-        # beklenmeyen davranışı taklit etmek için eklendi.
-        if ending == Decimal("0.00"):
-            diff = (payment - principal).copy_abs()  # ödeme içindeki faiz büyüklüğü
-            if diff > Decimal("0.50"):
-                # force last-line style shown in sample
-                interest = Decimal("0.00")
-                principal = payment
-                ending = Decimal("0.00")
-        # ---------------------------------------------------------------
-    else:
-        payment = monthly_payment
-        ending = (balance - payment).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
-
-    # print satırını örneğe yakın hizalamayla verelim (sütun genişlikleri)
-    # formatter için float'a çevirmiyoruz; Decimal ile formatlama da çalışır.
-    print(f"{month:2d}        {balance:8.2f}          {interest:5.2f}            {principal:6.2f}        {payment:6.2f}        {ending:8.2f}")
-
-    # bir sonraki aya geç
-    balance = ending
-    month += 1
+if __name__ == "__main__":
+    main()
