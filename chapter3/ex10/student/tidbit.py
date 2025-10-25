@@ -11,10 +11,10 @@ print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Endi
 
 month = 1
 while balance > 0:
-    starting_balance = balance
+    starting_balance = round(balance, 2)
 
     if balance <= monthly_payment:
-        payment = round(balance, 2)
+        payment = starting_balance
         interest = 0.00
         principal = payment
         ending_balance = 0.00
@@ -24,7 +24,8 @@ while balance > 0:
         payment = monthly_payment
         ending_balance = round(starting_balance - payment, 2)
 
-    print(f"{month:2d} {starting_balance:15.2f} {interest:17.2f} {principal:17.2f} {payment:9.2f} {ending_balance:15.2f}")
+    print(f"{month:2d} {starting_balance:15.2f} {interest:17.2f} {principal:17.2f} {payment:12.2f} {ending_balance:15.2f}")
 
     balance = ending_balance
     month += 1
+
