@@ -3,7 +3,7 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values when user inputs 800
 Reason: the correct values were found in the program's output.None
-Timestamp: 2025-10-25 16:26:45.154472
+Timestamp: 2025-10-25 16:30:06.522205
 
 Status: FAILED!
 Check: 2
@@ -28,4 +28,4 @@ Reason: Output from code did not match:
 17         129.90           1.30            63.65            64.95            64.95
 18          64.95           0.00            64.95            64.95             0.00
 Error : AssertionError - 
-Timestamp: 2025-10-25 16:26:45.173842
+Timestamp: 2025-10-25 16:30:06.541143
