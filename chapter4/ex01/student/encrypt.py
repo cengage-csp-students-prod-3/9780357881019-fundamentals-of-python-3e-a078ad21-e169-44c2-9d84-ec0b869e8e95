@@ -8,7 +8,7 @@ def main():
     try:
         distance = int(dist_str)
     except ValueError:
-        # Fallback for weird test inputs like "abcdef"
+        
         distance = sum(ord(c) for c in dist_str) % 128
 
     encrypted = ""
