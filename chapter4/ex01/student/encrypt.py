@@ -1,22 +1,43 @@
 # encrypt.py
-# This program encrypts a message using a Caesar cipher for all printable characters.
+# Caesar cipher for ALL printable ASCII characters (32..126).
+# Prompts:
+#   Enter a message: 
+#   Enter the distance value: 
+# If the distance is not an integer, prints a friendly error and exits.
 
 def main():
-    # Get input from the user
     plaintext = input("Enter a message: ")
-    distance = int(input("Enter the distance value: "))
+    dist_str = input("Enter the distance value: ")
 
-    encrypted = ""
+    # Validate distance is an integer
+    try:
+        distance = int(dist_str)
+    except ValueError:
+        print("Error: distance value must be an integer.")
+        return
 
-    # Encrypt each character
+    # Printable ASCII range: 32..126 inclusive (95 characters)
+    MIN_PRINT = 32
+    MAX_PRINT = 126
+    RANGE = MAX_PRINT - MIN_PRINT + 1  # 95
+
+    # Normalize distance so it's within 0..RANGE-1
+    distance = distance % RANGE
+
+    encrypted_chars = []
     for ch in plaintext:
-        # Convert the character to its ASCII code, shift it, and wrap around the printable range
-        new_code = (ord(ch) + distance) % 127  # 127 is outside printable range
-        if new_code < 32:  # printable characters start from 32 (space)
-            new_code += 32
-        encrypted += chr(new_code)
+        code = ord(ch)
+        if MIN_PRINT <= code <= MAX_PRINT:
+            # shift within printable range
+            offset = code - MIN_PRINT
+            new_offset = (offset + distance) % RANGE
+            new_code = MIN_PRINT + new_offset
+            encrypted_chars.append(chr(new_code))
+        else:
+            # If character is outside printable range (rare for input), leave as is
+            encrypted_chars.append(ch)
 
-    # Print encrypted message
+    encrypted = "".join(encrypted_chars)
     print(encrypted)
 
 if __name__ == "__main__":
