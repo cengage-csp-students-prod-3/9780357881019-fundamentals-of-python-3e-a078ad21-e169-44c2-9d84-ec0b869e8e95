@@ -1,5 +1,3 @@
-# encrypt.py
-# Encrypts a message by adding 1 to ASCII value, converting to binary, and shifting bits left
 
 def shift_left(bit_string):
     """Shift a bit string one place to the left, wrapping the leftmost bit to the right."""
@@ -9,9 +7,9 @@ def shift_left(bit_string):
 
 def char_to_bit_string(char):
     """Convert a character to a 7-bit binary string, add 1 to ASCII value first."""
-    ascii_value = ord(char) + 1  # ASCII + 1
-    bit_string = format(ascii_value, '07b')  # 7-bit binary
-    shifted = shift_left(bit_string)         # Shift left 1
+    ascii_value = ord(char) + 1  
+    bit_string = format(ascii_value, '07b')  
+    shifted = shift_left(bit_string)         
     return shifted
 
 def encrypt_message(message):
