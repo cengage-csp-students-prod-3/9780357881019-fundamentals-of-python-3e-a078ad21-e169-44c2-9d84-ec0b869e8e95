@@ -1,0 +1,18 @@
+
+Status: PASSED!
+Check: 1
+Test: The median of [1,50,1000] is 50
+Reason: None
+Timestamp: 2025-11-15 05:39:35.190373
+
+Status: PASSED!
+Check: 2
+Test: The median of [44,23,77,23] is 33.5
+Reason: None
+Timestamp: 2025-11-15 05:39:35.190477
+
+Status: PASSED!
+Check: 3
+Test: median of an empty list returns 0
+Reason: None
+Timestamp: 2025-11-15 05:39:35.190543
