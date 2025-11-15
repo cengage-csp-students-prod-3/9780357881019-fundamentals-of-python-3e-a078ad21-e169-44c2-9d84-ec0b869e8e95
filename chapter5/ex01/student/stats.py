@@ -16,10 +16,10 @@ def median(numbers):
     n = len(sorted_nums)
     mid = n // 2
     if n % 2 == 0:
-        # Çift sayıda eleman → ortadaki iki elemanın ortalaması
+        
         return (sorted_nums[mid - 1] + sorted_nums[mid]) / 2
     else:
-        # Tek sayıda eleman → ortadaki eleman
+       
         return sorted_nums[mid]
 
 
@@ -30,9 +30,9 @@ def mode(numbers):
     counts = {}
     for num in numbers:
         counts[num] = counts.get(num, 0) + 1
-    # En çok tekrar eden sayı
+    
     max_count = max(counts.values())
-    for num in numbers:  # ilk çıkan en yüksek frekanslı sayı
+    for num in numbers:  
         if counts[num] == max_count:
             return num
 
