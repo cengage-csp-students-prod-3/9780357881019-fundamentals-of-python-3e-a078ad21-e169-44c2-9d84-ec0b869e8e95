@@ -1,0 +1,21 @@
+   1> # numberlines.py
+   2> # Copies lines from input file to output file, numbering each line
+   3> 
+   4> def main():
+   5>     input_file = input("Enter the input file name: ")
+   6>     output_file = input("Enter the output file name: ")
+   7> 
+   8>     with open(input_file, "r", encoding="utf-8") as infile, \
+   9>          open(output_file, "w", encoding="utf-8") as outfile:
+  10> 
+  11>         line_number = 1
+  12>         for line in infile:
+  13>             # Sağdaya dayalı 4 sütun, ardından ">" ve satır içeriği
+  14>             numbered_line = f"{line_number:>4}> {line}"
+  15>             outfile.write(numbered_line)
+  16>             line_number += 1
+  17> 
+  18>     print("File copied with line numbers successfully!")
+  19> 
+  20> if __name__ == "__main__":
+  21>     main()
