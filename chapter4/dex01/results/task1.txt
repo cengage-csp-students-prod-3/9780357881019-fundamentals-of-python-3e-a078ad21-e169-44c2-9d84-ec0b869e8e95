@@ -1,0 +1,26 @@
+
+Status: FAILED!
+Check: 1
+Test: The program displays the correct metrics.
+Reason: Unable to find '["the correct Flesch Index of '72.80706451612906' and metrics"]' in the program's output.
+Enter the file name: The Flesch Index is 57.79738709677423
+The Grade Level Equivalent is 8
+5 sentences
+62 words
+100 syllables
+.
+Error : AssertionError - 
+Timestamp: 2025-11-15 05:00:26.465412
+
+Status: FAILED!
+Check: 2
+Test: The program displays the correct metrics.
+Reason: Unable to find '["the correct Flesch Index of '70.63150000000002' and metrics"]' in the program's output.
+Enter the file name: The Flesch Index is 46.94350000000003
+The Grade Level Equivalent is 10
+4 sentences
+50 words
+87 syllables
+.
+Error : AssertionError - 
+Timestamp: 2025-11-15 05:00:26.483721
