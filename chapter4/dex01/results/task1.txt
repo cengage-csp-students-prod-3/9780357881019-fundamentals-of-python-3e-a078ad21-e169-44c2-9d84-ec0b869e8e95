@@ -3,14 +3,20 @@ Status: FAILED!
 Check: 1
 Test: The program displays the correct metrics.
 Reason: Unable to find '["the correct Flesch Index of '72.80706451612906' and metrics"]' in the program's output.
+Enter the file name: The Flesch Index is 57.79738709677423
+The Average Number of Words Per Sentence is 12.4
+The Average Number of Syllables Per Word is 1.6129032258064515
 .
 Error : AssertionError - 
-Timestamp: 2025-11-15 05:02:51.759495
+Timestamp: 2025-11-15 05:07:49.834253
 
 Status: FAILED!
 Check: 2
 Test: The program displays the correct metrics.
 Reason: Unable to find '["the correct Flesch Index of '70.63150000000002' and metrics"]' in the program's output.
+Enter the file name: The Flesch Index is 53.71150000000003
+The Average Number of Words Per Sentence is 12.5
+The Average Number of Syllables Per Word is 1.66
 .
 Error : AssertionError - 
-Timestamp: 2025-11-15 05:02:51.776264
+Timestamp: 2025-11-15 05:07:49.851720
