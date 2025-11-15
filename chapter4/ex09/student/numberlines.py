@@ -1,5 +1,4 @@
-# numberlines.py
-# Copies lines from input file to output file, numbering each line
+
 
 def main():
     input_file = input("Enter the input file name: ")
@@ -10,7 +9,7 @@ def main():
 
         line_number = 1
         for line in infile:
-            # Sağdaya dayalı 4 sütun, ardından ">" ve satır içeriği
+           
             numbered_line = f"{line_number:>4}> {line}"
             outfile.write(numbered_line)
             line_number += 1
