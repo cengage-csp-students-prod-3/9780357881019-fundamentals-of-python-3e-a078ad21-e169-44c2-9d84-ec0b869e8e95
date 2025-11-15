@@ -1,10 +1,13 @@
+import string
+import re
+
 def countSyllables(word):
     word = word.lower()
     vowels = "aeiouy"
     count = 0
     prevVowel = False
 
-    for i, ch in enumerate(word):
+    for ch in word:
         if ch in vowels:
             if not prevVowel:
                 count += 1
@@ -25,22 +28,26 @@ def main():
     with open(filename, "r") as f:
         text = f.read()
 
-    # Sentences
-    sentences = 0
-    for ch in text:
-        if ch in ".!?":
-            sentences += 1
+    # SENTENCES
+    sentences = len(re.findall(r'[.!?]+', text))
     if sentences == 0:
         sentences = 1
 
-    # Words
-    wordsList = text.replace("\n", " ").split()
+    # WORDS
+    rawWords = text.replace("\n", " ").split()
+    wordsList = []
+
+    for w in rawWords:
+        w = w.strip(string.punctuation)
+        if w:
+            wordsList.append(w)
+
     words = len(wordsList)
 
-    # Syllables
-    syllables = sum(countSyllables(word) for word in wordsList)
+    # SYLLABLES
+    syllables = sum(countSyllables(w) for w in wordsList)
 
-    # Flesch Index
+    # FLESCH INDEX
     flesch = 206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words)
 
     print(f"Words: {words}")
