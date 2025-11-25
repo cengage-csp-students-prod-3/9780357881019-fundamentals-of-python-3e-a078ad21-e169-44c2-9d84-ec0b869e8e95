@@ -3,32 +3,32 @@ Status: PASSED!
 Check: 1
 Test: The `newton(2)` method returns the square root of 2.
 Reason: None
-Timestamp: 2025-11-25 05:33:32.824394
+Timestamp: 2025-11-25 05:35:36.173462
 
 Status: FAILED!
 Check: 2
 Test: The `newton(4)` method returns the square root of 4.
 Reason: Expected 2.0000000929222947
 Error : AssertionError - Assertion failed: Expected 2.0000000929222947
-Timestamp: 2025-11-25 05:33:32.824498
+Timestamp: 2025-11-25 05:35:36.173592
 
 Status: FAILED!
 Check: 2
 Test: The `newton(4)` method returns the square root of 4.
 Reason: Unable to import the `newton` method. Failed
 Error : AssertionError - 
-Timestamp: 2025-11-25 05:33:32.824534
+Timestamp: 2025-11-25 05:35:36.173637
 
 Status: FAILED!
 Check: 3
 Test: The `newton(9)` method returns the square root of 9.
 Reason: Expected  3.000000001396984
 Error : AssertionError - Assertion failed: Expected  3.000000001396984
-Timestamp: 2025-11-25 05:33:32.824703
+Timestamp: 2025-11-25 05:35:36.173846
 
 Status: FAILED!
 Check: 3
 Test: The `newton(9)` method returns the square root of 9.
 Reason: Unable to import the `newton` method. Failed
 Error : AssertionError - 
-Timestamp: 2025-11-25 05:33:32.824736
+Timestamp: 2025-11-25 05:35:36.173883
