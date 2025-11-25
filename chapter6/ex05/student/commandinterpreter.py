@@ -22,27 +22,14 @@ def performCommand(commandNumber, menu):
 
 
 def main():
-    menu1 = ["Open", "Save", "Compile", "Run", "Quit"]
+    menu = ["Open", "Save", "Compile", "Run", "Quit"]
 
     while True:
-        printMenu(menu1)
-        command = acceptCommand(len(menu1))
-        performCommand(command, menu1)
+        printMenu(menu)
+        command = acceptCommand(len(menu))
+        performCommand(command, menu)
 
-        if menu1[command - 1] == "Quit":
-            print("Have a nice day!")
-            break
-
-    # Program ikinci menü ile test edilebilir:
-    print("\nTesting with second menu...\n")
-    menu2 = ["Login", "Upload", "Download", "Logout", "Quit"]
-
-    while True:
-        printMenu(menu2)
-        command = acceptCommand(len(menu2))
-        performCommand(command, menu2)
-
-        if menu2[command - 1] == "Quit":
+        if menu[command - 1] == "Quit":
             print("Have a nice day!")
             break
 
