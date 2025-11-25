@@ -15,7 +15,6 @@ qualifiers = ("Why do you say that ",
               "You seem to think that ",
               "Can you explain why ")
 
-# Fixed replacements dictionary for proper pronoun conversion
 replacements = {
     "i": "you",
     "me": "you",
@@ -30,19 +29,17 @@ replacements = {
     "are": "am"
 } 
 
-# List to store patient input history
 history = []
 
 def reply(sentence):
     """Implements reply strategies including hedges, qualifiers, and earlier statements."""
     history.append(sentence)
     
-    # Use a previous statement occasionally, only after at least 3 exchanges
+    
     if len(history) > 3 and random.random() < 0.3:
         past_sentence = random.choice(history[:-1])
         return "Earlier you said that " + changePerson(past_sentence)
     
-    # Otherwise, choose hedge or qualifier
     if random.randint(1, 4) == 1:
         return random.choice(hedges)
     else:
@@ -56,7 +53,7 @@ def changePerson(sentence):
         lower_word = word.lower()
         if lower_word in replacements:
             replacement = replacements[lower_word]
-            # Capitalize replacement if original word was capitalized
+            
             if word[0].isupper():
                 replacement = replacement.capitalize()
             replyWords.append(replacement)
