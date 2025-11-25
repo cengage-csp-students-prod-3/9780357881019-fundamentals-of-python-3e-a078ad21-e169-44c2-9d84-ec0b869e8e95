@@ -1,35 +1,35 @@
-TOLERANCE = 1e-10
+# newton.py
+
+TOLERANCE = 1e-7
 
 def limitReached(x, estimate):
-    return abs(estimate * estimate - x) <= TOLERANCE
+    return abs(estimate**2 - x) <= TOLERANCE
 
 def improveEstimate(x, estimate):
     return (estimate + x / estimate) / 2
 
 def newton(x):
-    estimate = x / 2.0
+    estimate = x / 2 if x != 0 else 0
     while not limitReached(x, estimate):
         estimate = improveEstimate(x, estimate)
     return estimate
 
 def main():
-    import math
     while True:
         user_input = input("Enter a positive number or enter/return to quit: ")
         if user_input == "":
             break
         try:
-            number = float(user_input)
-            if number <= 0:
+            num = float(user_input)
+            if num < 0:
                 print("Please enter a positive number.")
                 continue
+            estimate = newton(num)
+            print(f"The program's estimate is {estimate}")
+            import math
+            print(f"Python's estimate is      {math.sqrt(num)}")
         except ValueError:
             print("Invalid input. Please enter a number.")
-            continue
-
-        estimate = newton(number)
-        print("The program's estimate is", estimate)
-        print("Python's estimate is     ", math.sqrt(number))
 
 if __name__ == "__main__":
     main()
