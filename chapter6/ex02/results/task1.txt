@@ -1,0 +1,26 @@
+
+Status: PASSED!
+Check: 1
+Test: The `limitReached(4, 2)` method returns `True` when equal to the tolerance.
+Reason: None
+Timestamp: 2025-11-25 05:29:17.143996
+
+Status: FAILED!
+Check: 2
+Test: The `limitReached(1, 1.0000001)` method returns `True` when below the tolerance.
+Reason: Expected 1
+Error : AssertionError - Assertion failed: Expected 1
+Timestamp: 2025-11-25 05:29:17.144116
+
+Status: FAILED!
+Check: 2
+Test: The `limitReached(1, 1.0000001)` method returns `True` when below the tolerance.
+Reason: Unable to import the `limitReached` method. Failed
+Error : AssertionError - 
+Timestamp: 2025-11-25 05:29:17.144153
+
+Status: PASSED!
+Check: 3
+Test: The `limitReached(2, 1.5)` method returns `False` when above the tolerance.
+Reason: None
+Timestamp: 2025-11-25 05:29:17.144342
