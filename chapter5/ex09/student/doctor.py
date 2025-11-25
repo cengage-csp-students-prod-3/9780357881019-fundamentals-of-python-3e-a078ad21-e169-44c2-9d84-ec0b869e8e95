@@ -1,3 +1,20 @@
+"""
+Program: doctor.py
+Author: Ken
+Conducts an interactive session of nondirective psychotherapy.
+"""
+
+import random
+
+hedges = ("Please tell me more.",
+          "Many of my patients tell me the same thing.",
+          "Please continue.")
+
+qualifiers = ("Why do you say that ",
+              "You seem to think that ",
+              "Can you explain why ")
+
+
 replacements = {
     "i": "you",
     "me": "you",
@@ -10,21 +27,43 @@ replacements = {
     "yours": "mine",
     "am": "are",
     "are": "am"
-}
+} 
+
+def reply(sentence):
+    """Implements two different reply strategies."""
+    probability = random.randint(1, 4)
+    if probability == 1:
+        return random.choice(hedges)
+    else:
+        return random.choice(qualifiers) + changePerson(sentence)
 
 def changePerson(sentence):
     """Replaces first person pronouns with second person pronouns, and vice versa."""
     words = sentence.split()
     replyWords = []
     for word in words:
-        # Küçük harfe çevirip sözlükten kontrol et
         lower_word = word.lower()
         if lower_word in replacements:
-            # Orijinal kelimenin büyük/küçük harfini korumak için:
             replacement = replacements[lower_word]
+            # Capitalize replacement if original word was capitalized
             if word[0].isupper():
                 replacement = replacement.capitalize()
             replyWords.append(replacement)
         else:
             replyWords.append(word)
     return " ".join(replyWords)
+
+def main():
+    """Handles the interaction between patient and doctor."""
+    print("Good morning, I hope you are well today.")
+    print("What can I do for you?")
+    while True:
+        sentence = input("\n>> ")
+        if sentence.upper() == "QUIT":
+            print("Have a nice day!")
+            break
+        print(reply(sentence))
+
+# The entry point for program execution
+if __name__ == "__main__":
+    main()
