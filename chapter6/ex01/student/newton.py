@@ -1,11 +1,9 @@
 def newton(x):
-    estimate = 1.0  # start with 1.0 to match the case study
-    while True:
-        new_estimate = (estimate + x / estimate) / 2
-        if abs(new_estimate - estimate) < 1e-12:  # very small tolerance
-            break
-        estimate = new_estimate
-    return new_estimate
+    estimate = x / 2.0
+    tolerance = 1e-10
+    while abs(estimate * estimate - x) > tolerance:
+        estimate = (estimate + x / estimate) / 2
+    return estimate
 
 def main():
     while True:
@@ -13,15 +11,18 @@ def main():
         if user_input == "":
             break
         try:
-            num = float(user_input)
-            if num <= 0:
+            number = float(user_input)
+            if number <= 0:
                 print("Please enter a positive number.")
                 continue
-            estimate = newton(num)
-            print("The program's estimate is", estimate)
-            print("Python's estimate is      ", num**0.5)
         except ValueError:
             print("Invalid input. Please enter a number.")
+            continue
+
+        estimate = newton(number)
+        import math
+        print("The program's estimate is", estimate)
+        print("Python's estimate is     ", math.sqrt(number))
 
 if __name__ == "__main__":
     main()
