@@ -3,22 +3,22 @@ Status: PASSED!
 Check: 1
 Test: Calling getWords with articles.txt return correct tuple.
 Reason: None
-Timestamp: 2025-11-25 02:55:07.100080
+Timestamp: 2025-11-25 02:55:32.733944
 
 Status: PASSED!
 Check: 2
 Test: Calling getWords with nouns.txt return correct tuple.
 Reason: None
-Timestamp: 2025-11-25 02:55:07.100214
+Timestamp: 2025-11-25 02:55:32.734085
 
 Status: PASSED!
 Check: 3
 Test: Calling getWords with verbs.txt return correct tuple.
 Reason: None
-Timestamp: 2025-11-25 02:55:07.100316
+Timestamp: 2025-11-25 02:55:32.734174
 
 Status: PASSED!
 Check: 4
 Test: Calling getWords with nouns.txt return correct tuple.
 Reason: None
-Timestamp: 2025-11-25 02:55:07.100410
+Timestamp: 2025-11-25 02:55:32.734256
