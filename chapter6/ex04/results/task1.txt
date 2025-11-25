@@ -1,0 +1,84 @@
+
+Status: FAILED!
+Check: 1
+Test: The `verbPhrase` method returns `True` for a sentence without a prepositional phrase.
+Reason: Unable to find '['correct']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.678310
+
+Status: FAILED!
+Check: 2
+Test: The `verbPhrase` method returns `False` for a sentence without a verb.
+Reason: Unable to find '['incorrect']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.696398
+
+Status: FAILED!
+Check: 3
+Test: The `nounPhrase` method returns `True` a noun phrase modified by an adjective.
+Reason: Unable to find '['correct']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.713640
+
+Status: FAILED!
+Check: 4
+Test: The `nounPhrase` method returns `False` a sentence without a noun.
+Reason: Unable to find '['incorrect']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.730640
+
+Status: FAILED!
+Check: 5
+Test: The `sentence` method returns `True` when connecting two independent clauses with a conjunction.
+Reason: Unable to find '['correct']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.747533
+
+Status: FAILED!
+Check: 6
+Test: The `sentence` method returns `False` when connecting two independent clauses with a conjunction.
+Reason: Unable to find '['incorrect']' in the program's output.
+List: [] -> Sorted? True
+List: [1] -> Sorted? True
+List: [1, 2, 3, 4] -> Sorted? True
+List: [4, 3, 2, 1] -> Sorted? False
+List: [1, 2, 2, 3] -> Sorted? True
+List: [1, 3, 2, 4] -> Sorted? False
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 19:30:09.764541
