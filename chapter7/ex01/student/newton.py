@@ -1,31 +1,22 @@
-import math
-
-def newton(x, estimate=None, tolerance=1e-12):
+def newton(x, estimate=None, tolerance=1e-9):
+    """
+    Recursively approximates the square root of x using Newton's method.
+    
+    Parameters:
+    x         : The number to find the square root of (positive float or int)
+    estimate  : Current estimate of the square root (default: x/2)
+    tolerance : Acceptable error margin (default: 1e-9)
+    
+    Returns:
+    A float approximating the square root of x.
+    """
     if estimate is None:
-        estimate = x / 2 if x != 0 else 0
-    # Check if current estimate is good enough
-    if abs(estimate**2 - x) < tolerance:
+        estimate = x / 2  # initial guess
+    if abs(estimate * estimate - x) < tolerance:
         return estimate
-    # Recursive step
-    new_estimate = (estimate + x / estimate) / 2
-    return newton(x, new_estimate, tolerance)
+    return newton(x, (estimate + x / estimate) / 2, tolerance)
 
-def main():
-    while True:
-        user_input = input("Enter a positive number or enter/return to quit: ")
-        if not user_input:
-            print("Goodbye!")
-            break
-        try:
-            x = float(user_input)
-            if x < 0:
-                print("Please enter a positive number.")
-                continue
-            estimate = newton(x)
-            print(f"The program's estimate is {estimate:.12f}")
-            print(f"Python's estimate is      {math.sqrt(x):.12f}")
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-
+# Example usage (for manual testing)
 if __name__ == "__main__":
-    main()
+    x = float(input("Enter a positive number or press enter to quit: "))
+    print("The program's estimate is", newton(x))
