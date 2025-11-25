@@ -1,0 +1,12 @@
+
+Status: PASSED!
+Check: 1
+Test: Program outputs Daniel when line 3 is requested
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-11-25 02:47:56.671643
+
+Status: PASSED!
+Check: 2
+Test: Program outputs Max and Sebastian when lines 1 and 5 are requested
+Reason: correct values were found in the program's output.None
+Timestamp: 2025-11-25 02:47:56.690531
