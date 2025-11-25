@@ -34,24 +34,22 @@ replacements = {
 history = []
 
 def reply(sentence):
-    """Implements different reply strategies, including referencing earlier statements."""
-    # Add current input to history
+    """Implements reply strategies including hedges, qualifiers, and earlier statements."""
     history.append(sentence)
     
-    probability = random.randint(1, 4)
-    
-    # Use a previous statement occasionally, only if there are more than 3 exchanges
-    if len(history) > 3 and random.random() < 0.3:  # 30% chance to use history
-        past_sentence = random.choice(history[:-1])  # exclude current sentence
+    # Use a previous statement occasionally, only after at least 3 exchanges
+    if len(history) > 3 and random.random() < 0.3:
+        past_sentence = random.choice(history[:-1])
         return "Earlier you said that " + changePerson(past_sentence)
     
-    if probability == 1:
+    # Otherwise, choose hedge or qualifier
+    if random.randint(1, 4) == 1:
         return random.choice(hedges)
     else:
         return random.choice(qualifiers) + changePerson(sentence)
 
 def changePerson(sentence):
-    """Replaces first person pronouns with second person pronouns, and vice versa."""
+    """Replaces first/second person pronouns correctly, preserves capitalization."""
     words = sentence.split()
     replyWords = []
     for word in words:
@@ -67,7 +65,7 @@ def changePerson(sentence):
     return " ".join(replyWords)
 
 def main():
-    """Handles the interaction between patient and doctor."""
+    """Handles interaction between patient and doctor."""
     print("Good morning, I hope you are well today.")
     print("What can I do for you?")
     while True:
@@ -77,6 +75,5 @@ def main():
             break
         print(reply(sentence))
 
-# The entry point for program execution
 if __name__ == "__main__":
     main()
