@@ -1,0 +1,28 @@
+
+Status: FAILED!
+Check: 1
+Test: Method newton must exist
+Reason: Method newton not found!
+Error : AssertionError - 
+Timestamp: 2025-11-25 22:10:50.530678
+
+Status: FAILED!
+Check: 2
+Test: Method newton must exist
+Reason: Method newton not found!
+Error : AssertionError - 
+Timestamp: 2025-11-25 22:10:50.530783
+
+Status: FAILED!
+Check: 3
+Test: Method newton must exist
+Reason: Method newton not found!
+Error : AssertionError - 
+Timestamp: 2025-11-25 22:10:50.530849
+
+Status: FAILED!
+Check: 4
+Test: Method newton must exist
+Reason: Method newton not found!
+Error : AssertionError - 
+Timestamp: 2025-11-25 22:10:50.530902
