@@ -1,11 +1,11 @@
 def newton(x):
-    estimate = x / 2.0  # initial guess, matches the case study
+    estimate = 1.0  # start with 1.0 to match the case study
     while True:
         new_estimate = (estimate + x / estimate) / 2
-        if abs(new_estimate - estimate) < 1e-10:  # stop when estimate stabilizes
+        if abs(new_estimate - estimate) < 1e-12:  # very small tolerance
             break
         estimate = new_estimate
-    return estimate
+    return new_estimate
 
 def main():
     while True:
