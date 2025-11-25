@@ -3,18 +3,18 @@ Status: PASSED!
 Check: 1
 Test: The `newton` method returns the square root of 2.
 Reason: None
-Timestamp: 2025-11-25 05:14:04.765411
+Timestamp: 2025-11-25 05:18:59.232259
 
 Status: FAILED!
 Check: 2
 Test: The `newton` method returns the square root of 4.
 Reason: Expected 2.0000000929222947
 Error : AssertionError - Assertion failed: Expected 2.0000000929222947
-Timestamp: 2025-11-25 05:14:04.765533
+Timestamp: 2025-11-25 05:18:59.232373
 
 Status: FAILED!
 Check: 3
 Test: The `newton` method returns the square root of 9.
 Reason: Expected  3.000000001396984
 Error : AssertionError - Assertion failed: Expected  3.000000001396984
-Timestamp: 2025-11-25 05:14:04.765629
+Timestamp: 2025-11-25 05:18:59.232482
