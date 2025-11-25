@@ -1,9 +1,3 @@
-"""
-Program: toUpper.py
-Author: Jack
-Converts all words in a list to uppercase.
-"""
-
 
 listOfWords = ["Apple", "orange", "banana"]
 

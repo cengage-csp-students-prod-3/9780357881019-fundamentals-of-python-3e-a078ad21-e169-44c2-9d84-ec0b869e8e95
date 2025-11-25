@@ -1,45 +1,41 @@
-# tidbit.py
+"""
+Program: tidbit.py
+Author: Your Name
+Displays a payment schedule for TidBit Computer Store credit plan.
+"""
 
-price = float(input("Enter the purchase price: "))
+# Sabitler
+DOWN_PAYMENT_RATE = 0.10      # %10 peşinat
+ANNUAL_INTEREST_RATE = 0.12   # %12 yıllık faiz
+MONTHLY_PAYMENT_RATE = 0.05   # %5 aylık ödeme (liste fiyatına göre)
 
-# constants
-down_payment = price * 0.10
-balance = price - down_payment
-monthly_payment = price * 0.05
-monthly_rate = 0.12 / 12  # monthly interest rate
+# Kullanıcıdan satın alma fiyatını al
+purchase_price = float(input("Enter the purchase price: "))
 
-# header (must match exactly)
-print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
+# Peşinat sonrası kalan bakiye
+balance = purchase_price * (1 - DOWN_PAYMENT_RATE)
+
+# Sabit aylık ödeme
+monthly_payment = purchase_price * MONTHLY_PAYMENT_RATE
+
+# Tablo başlıkları
+print(f"{'Month':<6}{'Starting Balance':<18}{'Interest to Pay':<18}"
+      f"{'Principal to Pay':<18}{'Payment':<10}{'Ending Balance':<15}")
 
 month = 1
-
 while balance > 0:
-    starting_balance = balance
-
-    # interest this month
-    interest = starting_balance * monthly_rate
-
-    # tentative principal
+    interest = balance * ANNUAL_INTEREST_RATE / 12
     principal = monthly_payment - interest
-
-    # if payment would exceed remaining balance, adjust last payment
-    if monthly_payment >= balance:
-        payment = balance
-        # recalc principal so that interest + principal = payment
-        interest = balance * monthly_rate
-        principal = payment - interest
-        # small rounding adjustment to avoid negative principal
-        if principal < 0:
-            principal = payment
-            interest = 0.0
-        ending_balance = 0.0
-    else:
-        payment = monthly_payment
-        ending_balance = starting_balance - payment
-
-    # round values for printing only
-    print(f"{month:2d}         {starting_balance:7.2f}          {interest:5.2f}            {principal:6.2f}        {payment:6.2f}         {ending_balance:7.2f}")
-
-    # prepare for next month
+    
+    # Eğer principal, kalan bakiyeden büyükse, son ödeme olarak düzelt
+    if principal > balance:
+        principal = balance
+        monthly_payment = interest + principal
+    
+    ending_balance = balance - principal
+    
+    print(f"{month:<6}{balance:>14.2f}{interest:>18.2f}{principal:>18.2f}"
+          f"{monthly_payment:>10.2f}{ending_balance:>15.2f}")
+    
     balance = ending_balance
     month += 1
