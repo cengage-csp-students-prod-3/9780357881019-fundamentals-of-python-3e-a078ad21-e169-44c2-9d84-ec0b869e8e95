@@ -1,0 +1,20 @@
+
+Status: FAILED!
+Check: 1
+Test: Program outputs words in correct order.
+Reason: Unable to find '['Alex Esteban Lando Lewis Logan Max']' in the program's output.
+Enter the input file name: alex 2
+esteban 1
+lando 1
+lewis 1
+logan 1
+max 2
+.
+Error : AssertionError - 
+Timestamp: 2025-11-25 03:26:21.201387
+
+Status: PASSED!
+Check: 2
+Test: Program outputs words in correct order.
+Reason: The program's output contained the correct values in the correct order.None
+Timestamp: 2025-11-25 03:26:21.218616
