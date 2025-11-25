@@ -10,16 +10,15 @@ def main():
         # Split text into words
         words = text.split()
         
-        # Dictionary to store word frequencies
+        # Count word frequencies
         freq = {}
         for word in words:
-            word_lower = word.lower()  # Optional: make it case-insensitive
-            if word_lower in freq:
-                freq[word_lower] += 1
+            if word in freq:
+                freq[word] += 1
             else:
-                freq[word_lower] = 1
+                freq[word] = 1
         
-        # Sort words alphabetically
+        # Print words alphabetically with their frequency
         for word in sorted(freq):
             print(f"{word} {freq[word]}")
     
@@ -28,4 +27,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
