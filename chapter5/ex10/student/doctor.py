@@ -2,37 +2,69 @@
 Program: doctor.py
 Author: Ken
 Conducts an interactive session of nondirective psychotherapy.
+Supports referring back to earlier patient statements.
 """
 
 import random
 
 hedges = ("Please tell me more.",
           "Many of my patients tell me the same thing.",
-          "Please coninue.")
+          "Please continue.")
 
 qualifiers = ("Why do you say that ",
               "You seem to think that ",
               "Can you explain why ")
 
-replacements = {"I":"you", "me":"you", "my":"your",
-                "we":"you", "us":"you", "mine":"yours"} 
+# Fixed replacements dictionary for proper pronoun conversion
+replacements = {
+    "i": "you",
+    "me": "you",
+    "my": "your",
+    "we": "you",
+    "us": "you",
+    "mine": "yours",
+    "you": "I",
+    "your": "my",
+    "yours": "mine",
+    "am": "are",
+    "are": "am"
+} 
+
+# List to store patient input history
+history = []
 
 def reply(sentence):
-    """Implements two different reply strategies."""
+    """Implements different reply strategies, including referencing earlier statements."""
+    # Add current input to history
+    history.append(sentence)
+    
     probability = random.randint(1, 4)
+    
+    # Use a previous statement occasionally, only if there are more than 3 exchanges
+    if len(history) > 3 and random.random() < 0.3:  # 30% chance to use history
+        past_sentence = random.choice(history[:-1])  # exclude current sentence
+        return "Earlier you said that " + changePerson(past_sentence)
+    
     if probability == 1:
         return random.choice(hedges)
     else:
         return random.choice(qualifiers) + changePerson(sentence)
 
 def changePerson(sentence):
-    """Replaces first person pronouns with second person
-    pronouns."""
+    """Replaces first person pronouns with second person pronouns, and vice versa."""
     words = sentence.split()
     replyWords = []
     for word in words:
-        replyWords.append(replacements.get(word, word))
-    return " ".join(replyWords) 
+        lower_word = word.lower()
+        if lower_word in replacements:
+            replacement = replacements[lower_word]
+            # Capitalize replacement if original word was capitalized
+            if word[0].isupper():
+                replacement = replacement.capitalize()
+            replyWords.append(replacement)
+        else:
+            replyWords.append(word)
+    return " ".join(replyWords)
 
 def main():
     """Handles the interaction between patient and doctor."""
@@ -48,4 +80,3 @@ def main():
 # The entry point for program execution
 if __name__ == "__main__":
     main()
-
