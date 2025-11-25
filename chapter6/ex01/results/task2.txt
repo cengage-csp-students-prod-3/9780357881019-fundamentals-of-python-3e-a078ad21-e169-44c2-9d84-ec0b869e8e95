@@ -1,0 +1,32 @@
+
+Status: PASSED!
+Check: 1
+Test: The newton.py program displays both the newton square root and the math square root of 2.
+Reason: None
+Timestamp: 2025-11-25 05:10:08.259498
+
+Status: PASSED!
+Check: 2
+Test: The newton.py program displays both the newton square root and the math square root of 4.
+Reason: None
+Timestamp: 2025-11-25 05:10:08.277749
+
+Status: PASSED!
+Check: 3
+Test: The newton.py program displays both the newton square root and the math square root of 9.
+Reason: None
+Timestamp: 2025-11-25 05:10:08.295279
+
+Status: FAILED!
+Check: 4
+Test: The newton.py program continues until the user pressed enter/return
+Reason: Unable to find '['3.162277665175675', '3.4641016533502986', '3.7416573867739458']' in the program's output.
+Enter a positive number or enter/return to quit: The program's estimate is 3.162277660168379
+Python's estimate is       3.1622776601683795
+Enter a positive number or enter/return to quit: The program's estimate is 3.4641016151377544
+Python's estimate is       3.4641016151377544
+Enter a positive number or enter/return to quit: The program's estimate is 3.7416573867739418
+Python's estimate is       3.7416573867739413
+Enter a positive number or enter/return to quit: .
+Error : AssertionError - Unable to find a number close enough to 3.162277665175675 (+/-0.00) in the program's output.
+Timestamp: 2025-11-25 05:10:08.313380
