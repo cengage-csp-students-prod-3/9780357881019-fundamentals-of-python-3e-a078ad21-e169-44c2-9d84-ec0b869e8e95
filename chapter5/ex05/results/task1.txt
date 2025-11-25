@@ -3,16 +3,16 @@ Status: PASSED!
 Check: 1
 Test: repToDecimal of 10 in base 2 is 2
 Reason: None
-Timestamp: 2025-11-25 03:06:51.603518
+Timestamp: 2025-11-25 03:07:18.504060
 
 Status: PASSED!
 Check: 2
 Test: repToDecimal of 10 in base 10 is 10
 Reason: None
-Timestamp: 2025-11-25 03:06:51.603647
+Timestamp: 2025-11-25 03:07:18.504163
 
 Status: PASSED!
 Check: 3
 Test: repToDecimal of 20 in base 16 is 32
 Reason: None
-Timestamp: 2025-11-25 03:06:51.603729
+Timestamp: 2025-11-25 03:07:18.504214
