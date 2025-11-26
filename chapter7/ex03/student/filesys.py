@@ -9,7 +9,6 @@ and gathering information on files.
 import os, os.path
 
 QUIT = '8'
-
 COMMANDS = ('1', '2', '3', '4', '5', '6', '7', '8')
 
 MENU = """1   List the current directory
@@ -108,7 +107,7 @@ def countBytes(path):
     return count
 
 def findFiles(target, path):
-    """Returns a list of the file names that contain the target string in the cwd and all its subdirectories."""
+    """Returns a list of the file names that contain the target string."""
     files = []
     lyst = os.listdir(path)
     for element in lyst:
@@ -123,16 +122,22 @@ def findFiles(target, path):
 
 def viewFile():
     """Displays the contents of a file in the current working directory."""
-    files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(f)]
+    files = [f for f in os.listdir('.') if os.path.isfile(f)]
     print("Files in", os.getcwd() + ":")
     for f in files:
         print(f)
+    
     filename = input("Enter a file name from these names: ")
+    
     if filename not in files:
         print("Error: file not found")
         return
-    with open(filename, "r", encoding="utf-8") as f:
-        print(f.read())
+    
+    try:
+        with open(filename, 'r', encoding='utf-8') as f:
+            print(f.read())
+    except Exception as e:
+        print("Error reading file:", e)
 
 if __name__ == "__main__":
     main()
