@@ -1,27 +1,17 @@
-import os
-
-def displayFiles(pathname):
-    """
-    Recursively display file names and their contents.
-    If pathname is a directory, apply the function to each item in it.
-    """
-    if os.path.isfile(pathname):
-        # If it is a file, print its name and contents
-        print(f"File name: {pathname}")
-        with open(pathname, 'r') as file:
-            contents = file.read()
-            print(contents)
-    elif os.path.isdir(pathname):
-        # If it is a directory, print the directory name
-        print(f"Directory name: {pathname}")
-        # Recursively call displayFiles on each item in the directory
-        for item in os.listdir(pathname):
-            item_path = os.path.join(pathname, item)
-            displayFiles(item_path)
-    else:
-        print(f"{pathname} is not a valid file or directory.")
+def printAll(seq):
+    print(f"Calling printAll with: {seq}")  # Trace the argument
+    if seq:
+        print(seq[0])  # Print the first element
+        printAll(seq[1:])  # Recursive call with the rest of the sequence
 
 # Test the function
 if __name__ == "__main__":
-    directory = input("Directory name: ")
-    displayFiles(directory)
+    test_seq = ['a', 'b', 'c', 'd']
+    print("Testing with a list:")
+    printAll(test_seq)
+    
+    print("\nTesting with a string:")
+    printAll("hello")
+    
+    print("\nTesting with a tuple:")
+    printAll((1, 2, 3))
