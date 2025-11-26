@@ -3,11 +3,10 @@ import os
 # --- Fonksiyonlar ---
 
 def listCurrentDirectory():
-    current_dir = os.getcwd()
-    files = os.listdir(current_dir)
-    print(f"Files in {current_dir}:")
-    for file in files:
-        print(file)
+    files = os.listdir(os.getcwd())
+    print("Files in the current directory:")
+    for f in files:
+        print(f)
 
 def moveUp():
     try:
@@ -29,10 +28,7 @@ def countFiles():
     print(f"Number of files in the directory: {len(files)}")
 
 def directorySize():
-    total_size = 0
-    for f in os.listdir():
-        if os.path.isfile(f):
-            total_size += os.path.getsize(f)
+    total_size = sum(os.path.getsize(f) for f in os.listdir() if os.path.isfile(f))
     print(f"Size of the directory in bytes: {total_size}")
 
 def searchFile():
@@ -42,18 +38,18 @@ def searchFile():
     else:
         print(f"File '{name}' not found.")
 
+# --- viewFile fonksiyonu (TEST UYUMLU) ---
+
 def viewFile():
-    # Mevcut dizindeki dosyaları listele
+    """Displays the contents of a file in the current working directory."""
     current_dir = os.getcwd()
     files = os.listdir(current_dir)
     print(f"Files in {current_dir}:")
     for file in files:
         print(file)
 
-    # Kullanıcıdan dosya adı iste
     file_name = input("Enter a file name from these names: ")
 
-    # Dosya açma ve hata yönetimi
     try:
         with open(file_name, "r", encoding="utf-8") as f:
             content = f.read()
