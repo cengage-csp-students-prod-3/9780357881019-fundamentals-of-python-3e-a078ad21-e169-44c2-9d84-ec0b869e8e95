@@ -1,143 +1,98 @@
-"""
-Program: filesys.py
-Author: Ken
+import os
 
-Provides a menu-driven tool for navigating a file system
-and gathering information on files.
-"""
+# --- Fonksiyonlar ---
 
-import os, os.path
-
-QUIT = '8'
-COMMANDS = ('1', '2', '3', '4', '5', '6', '7', '8')
-
-MENU = """1   List the current directory
-2   Move up
-3   Move down
-4   Number of files in the directory
-5   Size of the directory in bytes
-6   Search for a file name
-7   View the contents of a file
-8   Quit the program"""
-
-def main():
-    while True:
-        print(os.getcwd())
-        print(MENU)
-        command = acceptCommand()
-        runCommand(command)
-        if command == QUIT:
-            print("Have a nice day!")
-            break
-
-def acceptCommand():
-    """Inputs and returns a legitimate command number."""
-    while True:
-        command = input("Enter a number: ")
-        if not command in COMMANDS:
-            print("Error: command not recognized")
-        else:
-            return command
-
-def runCommand(command):
-    """Selects and runs a command."""
-    if command == '1':
-        listCurrentDir(os.getcwd())
-    elif command == '2':
-        moveUp()
-    elif command == '3':
-        moveDown(os.getcwd())
-    elif command == '4':
-        print("The total number of files is", countFiles(os.getcwd()))
-    elif command == '5':
-        print("The total number of bytes is", countBytes(os.getcwd()))
-    elif command == '6':
-        target = input("Enter the search string: ")
-        fileList = findFiles(target, os.getcwd())
-        if not fileList:
-            print("String not found")
-        else:
-            for f in fileList:
-                print(f)
-    elif command == '7':
-        viewFile()
-
-def listCurrentDir(dirName):
-    """Prints a list of the cwd's contents."""
-    lyst = os.listdir(dirName)
-    for element in lyst:
-        print(element)
+def listCurrentDirectory():
+    current_dir = os.getcwd()
+    files = os.listdir(current_dir)
+    print(f"Files in {current_dir}:")
+    for file in files:
+        print(file)
 
 def moveUp():
-    """Moves up to the parent directory."""
-    os.chdir("..")
+    try:
+        os.chdir("..")
+        print(f"Moved up. Current directory: {os.getcwd()}")
+    except Exception as e:
+        print(f"Error: {e}")
 
-def moveDown(currentDir):
-    """Moves down to the named subdirectory if it exists."""
-    newDir = input("Enter the directory name: ")
-    if os.path.exists(currentDir + os.sep + newDir) and os.path.isdir(newDir):
-        os.chdir(newDir)
+def moveDown():
+    folder = input("Enter the folder name to move down into: ")
+    if os.path.isdir(folder):
+        os.chdir(folder)
+        print(f"Moved down. Current directory: {os.getcwd()}")
     else:
-        print("ERROR: no such name")
+        print(f"Error: '{folder}' is not a directory.")
 
-def countFiles(path):
-    """Returns the number of files in the cwd and all its subdirectories."""
-    count = 0
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
-            count += 1
-        else:
-            os.chdir(element)
-            count += countFiles(os.getcwd())
-            os.chdir("..")
-    return count
+def countFiles():
+    files = [f for f in os.listdir() if os.path.isfile(f)]
+    print(f"Number of files in the directory: {len(files)}")
 
-def countBytes(path):
-    """Returns the number of bytes in the cwd and all its subdirectories."""
-    count = 0
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
-            count += os.path.getsize(element)
-        else:
-            os.chdir(element)
-            count += countBytes(os.getcwd())
-            os.chdir("..")
-    return count
+def directorySize():
+    total_size = 0
+    for f in os.listdir():
+        if os.path.isfile(f):
+            total_size += os.path.getsize(f)
+    print(f"Size of the directory in bytes: {total_size}")
 
-def findFiles(target, path):
-    """Returns a list of the file names that contain the target string."""
-    files = []
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
-            if target in element:
-                files.append(path + os.sep + element)
-        else:
-            os.chdir(element)
-            files.extend(findFiles(target, os.getcwd()))
-            os.chdir("..")
-    return files
+def searchFile():
+    name = input("Enter the file name to search for: ")
+    if os.path.exists(name):
+        print(f"File '{name}' found!")
+    else:
+        print(f"File '{name}' not found.")
 
 def viewFile():
-    """Displays the contents of a file in the current working directory."""
-    files = [f for f in os.listdir('.') if os.path.isfile(f)]
-    print("Files in", os.getcwd() + ":")
-    for f in files:
-        print(f)
-    
-    filename = input("Enter a file name from these names: ")
-    
-    if filename not in files:
-        print("Error: file not found")
-        return
-    
-    try:
-        with open(filename, 'r', encoding='utf-8') as f:
-            print(f.read())
-    except Exception as e:
-        print("Error reading file:", e)
+    # Mevcut dizindeki dosyaları listele
+    current_dir = os.getcwd()
+    files = os.listdir(current_dir)
+    print(f"Files in {current_dir}:")
+    for file in files:
+        print(file)
 
-if __name__ == "__main__":
-    main()
+    # Kullanıcıdan dosya adı iste
+    file_name = input("Enter a file name from these names: ")
+
+    # Dosya açma ve hata yönetimi
+    try:
+        with open(file_name, "r", encoding="utf-8") as f:
+            content = f.read()
+            print("\n" + content)
+    except FileNotFoundError:
+        print(f"Error: The file '{file_name}' does not exist.")
+    except IOError:
+        print(f"Error: Cannot read the file '{file_name}'.")
+
+# --- Ana Program ---
+
+while True:
+    print("\n1   List the current directory")
+    print("2   Move up")
+    print("3   Move down")
+    print("4   Number of files in the directory")
+    print("5   Size of the directory in bytes")
+    print("6   Search for a file name")
+    print("7   View the contents of a file")
+    print("8   Quit the program")
+    
+    choice = input("Enter a number: ")
+
+    if choice == "1":
+        listCurrentDirectory()
+    elif choice == "2":
+        moveUp()
+    elif choice == "3":
+        moveDown()
+    elif choice == "4":
+        countFiles()
+    elif choice == "5":
+        directorySize()
+    elif choice == "6":
+        searchFile()
+    elif choice == "7":
+        viewFile()
+    elif choice == "8":
+        print("Exiting program. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Try again.")
