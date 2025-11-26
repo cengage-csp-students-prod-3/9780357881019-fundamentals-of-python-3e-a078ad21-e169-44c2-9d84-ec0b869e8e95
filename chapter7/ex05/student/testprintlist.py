@@ -1,8 +1,9 @@
+# testprintlist.py
+
 def printAll(seq):
-    # Trace the argument at the start of each call
-    print(f"Calling printAll with: {seq}")
-    
-    if seq:  # If the sequence is not empty
+    """Prints all elements of a sequence recursively with argument tracing."""
+    print(f"Calling printAll with: {seq}")  # Trace the argument
+    if seq:  # Check if the sequence is not empty
         print(seq[0])  # Print the first element
         printAll(seq[1:])  # Recursive call with the rest of the sequence
 
