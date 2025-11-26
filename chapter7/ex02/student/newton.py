@@ -4,7 +4,7 @@ Restructured version of Newton's method using recursion.
 """
 
 def limitReached(estimate, number):
-    return abs(number - estimate ** 2) < 0.000001
+    return abs(number - estimate ** 2) < 1e-14   # çok daha küçük tolerans
 
 def improveEstimate(estimate, number):
     return (estimate + number / estimate) / 2
