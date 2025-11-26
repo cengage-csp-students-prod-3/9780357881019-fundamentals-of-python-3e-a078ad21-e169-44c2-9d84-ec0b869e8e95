@@ -1,5 +1,4 @@
 """
-
 images.py
 
 Revised for Python 3.2, 2011.
@@ -172,4 +171,3 @@ class Image:
     		
 _root = tk.Tk()
 _root.withdraw()
-
