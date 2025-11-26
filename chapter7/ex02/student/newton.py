@@ -3,30 +3,17 @@ File: newton.py
 Restructured version of Newton's method using recursion.
 """
 
-# --------------------------------------------
-# Checks whether the approximation is close enough
-# --------------------------------------------
 def limitReached(estimate, number):
-    return abs(number - estimate ** 2) < 0.000001   # tolerance
+    return abs(number - estimate ** 2) < 0.000001
 
-# --------------------------------------------
-# Computes an improved approximation
-# --------------------------------------------
 def improveEstimate(estimate, number):
     return (estimate + number / estimate) / 2
 
-# --------------------------------------------
-# Recursive Newton function
-# --------------------------------------------
 def newton(estimate, number):
     if limitReached(estimate, number):
         return estimate
-    else:
-        return newton(improveEstimate(estimate, number), number)
+    return newton(improveEstimate(estimate, number), number)
 
-# --------------------------------------------
-# Main input loop
-# --------------------------------------------
 def main():
     while True:
         user_input = input("Enter a positive number or enter/return to quit: ")
@@ -35,12 +22,10 @@ def main():
             break
 
         number = float(user_input)
-        initial_guess = number / 2
+        estimate = newton(number / 2, number)
 
-        estimate = newton(initial_guess, number)
-
-        print("The program's estimate is", estimate)
-        print("Python's estimate is     ", number ** 0.5)
+        print(f"The program's estimate is {estimate}")
+        print(f"Python's estimate is      {number ** 0.5}")
 
 if __name__ == "__main__":
     main()
