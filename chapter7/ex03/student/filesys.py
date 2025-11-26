@@ -6,11 +6,10 @@ Provides a menu-driven tool for navigating a file system
 and gathering information on files.
 """
 
-import os, os.path
+import os
 
 QUIT = '8'
-
-COMMANDS = ('1', '2', '3', '4', '5', '6', '7', '8')
+COMMANDS = tuple(str(i) for i in range(1, 9))
 
 MENU = """1   List the current directory
 2   Move up
@@ -32,28 +31,24 @@ def main():
             break
 
 def acceptCommand():
-    """Inputs and returns a legitimate command number."""
     while True:
         command = input("Enter a number: ")
-        if not command in COMMANDS:
+        if command not in COMMANDS:
             print("Error: command not recognized")
         else:
             return command
 
 def runCommand(command):
-    """Selects and runs a command."""
     if command == '1':
         listCurrentDir(os.getcwd())
     elif command == '2':
         moveUp()
     elif command == '3':
-        moveDown(os.getcwd())
+        moveDown()
     elif command == '4':
-        print("The total number of files is", \
-              countFiles(os.getcwd()))
+        print("The total number of files is", countFiles(os.getcwd()))
     elif command == '5':
-        print("The total number of bytes is", \
-              countBytes(os.getcwd()))
+        print("The total number of bytes is", countBytes(os.getcwd()))
     elif command == '6':
         target = input("Enter the search string: ")
         fileList = findFiles(target, os.getcwd())
@@ -66,88 +61,62 @@ def runCommand(command):
         viewFile()
 
 def listCurrentDir(dirName):
-    """Prints a list of the cwd's contents."""
-    lyst = os.listdir(dirName)
-    for element in lyst: print(element)
+    for element in os.listdir(dirName):
+        print(element)
 
 def moveUp():
-    """Moves up to the parent directory."""
     os.chdir("..")
 
-def moveDown(currentDir):
-    """Moves down to the named subdirectory if it exists."""
+def moveDown():
     newDir = input("Enter the directory name: ")
-    if os.path.exists(currentDir + os.sep + newDir) and \
-       os.path.isdir(newDir):
+    if os.path.exists(os.path.join(os.getcwd(), newDir)) and os.path.isdir(newDir):
         os.chdir(newDir)
     else:
         print("ERROR: no such name")
 
 def countFiles(path):
-    """Returns the number of files in the cwd and
-    all its subdirectories."""
     count = 0
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
+    for element in os.listdir(path):
+        fullPath = os.path.join(path, element)
+        if os.path.isfile(fullPath):
             count += 1
-        else:
-            os.chdir(element)
-            count += countFiles(os.getcwd())
-            os.chdir("..")
+        elif os.path.isdir(fullPath):
+            count += countFiles(fullPath)
     return count
 
 def countBytes(path):
-    """Returns the number of bytes in the cwd and
-    all its subdirectories."""
     count = 0
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
-            count += os.path.getsize(element)
-        else:
-            os.chdir(element)
-            count += countBytes(os.getcwd())
-            os.chdir("..")
+    for element in os.listdir(path):
+        fullPath = os.path.join(path, element)
+        if os.path.isfile(fullPath):
+            count += os.path.getsize(fullPath)
+        elif os.path.isdir(fullPath):
+            count += countBytes(fullPath)
     return count
 
 def findFiles(target, path):
-    """Returns a list of the file names that contain
-    the target string in the cwd and all its subdirectories."""
     files = []
-    lyst = os.listdir(path)
-    for element in lyst:
-        if os.path.isfile(element):
+    for element in os.listdir(path):
+        fullPath = os.path.join(path, element)
+        if os.path.isfile(fullPath):
             if target in element:
-                files.append(path + os.sep + element)
-        else:
-            os.chdir(element)
-            files.extend(findFiles(target, os.getcwd()))
-            os.chdir("..")
+                files.append(fullPath)
+        elif os.path.isdir(fullPath):
+            files.extend(findFiles(target, fullPath))
     return files
 
 def viewFile():
-    """Displays the contents of a file in the current directory."""
-    files = [f for f in os.listdir('.') if os.path.isfile(f)]
-    if not files:
-        print("No files in the current directory.")
-        return
-
     print("Files in", os.getcwd() + ":")
+    files = [f for f in os.listdir(os.getcwd()) if os.path.isfile(f)]
     for f in files:
         print(f)
-
     filename = input("Enter a file name from these names: ")
-    
-    if filename in files:
-        try:
-            with open(filename, 'r', encoding='utf-8') as file:
-                content = file.read()
-                print(content)
-        except Exception as e:
-            print(f"Error reading the file: {e}")
-    else:
-        print("Invalid file name. Please choose a file from the list.")
+    filepath = os.path.join(os.getcwd(), filename)
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            print(f.read())
+    except FileNotFoundError:
+        print("Error: file not found")
 
 if __name__ == "__main__":
     main()
