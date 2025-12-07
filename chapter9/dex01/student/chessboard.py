@@ -9,17 +9,23 @@ class Chessboard(EasyFrame):
 
     def __init__(self):
         """Sets up the window and the panels."""
-        EasyFrame.__init__(self, title = "Chess",
-                           width = 200, height = 200)
-        color = "white"
+        EasyFrame.__init__(self, title="Chess",
+                           width=200, height=200)
+
         for row in range(8):
+            # Reset starting color each row
+            if row % 2 == 0:
+                color = "white"
+            else:
+                color = "black"
+
             for column in range(8):
-                if color == "black":
-                    color = "white"
-                else:
-                    color = "black"
-                self.addPanel(row = row, column = column,
-                              background = color)
+                # Place square
+                self.addPanel(row=row, column=column, background=color)
+
+                # Toggle color for next column
+                color = "black" if color == "white" else "white"
+
 
 def main():
     """Instantiate and pop up the window."""
