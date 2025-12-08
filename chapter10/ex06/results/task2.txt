@@ -3,11 +3,10 @@ Status: PASSED!
 Check: 1
 Test: The `getNumberOfRolls` method should return the number of rolls the player has made.
 Reason: None
-Timestamp: 2025-12-08 02:31:12.450911
+Timestamp: 2025-12-08 02:34:02.594636
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: The `getNumberOfRolls` method should return the number of rolls the player has made.
-Reason: The `getNumberOfRolls` method does not return the number of rolls the player has made.
-Error : AssertionError - Assertion failed: The `getNumberOfRolls` method does not return the number of rolls the player has made.
-Timestamp: 2025-12-08 02:31:12.451011
+Reason: None
+Timestamp: 2025-12-08 02:34:02.594767
