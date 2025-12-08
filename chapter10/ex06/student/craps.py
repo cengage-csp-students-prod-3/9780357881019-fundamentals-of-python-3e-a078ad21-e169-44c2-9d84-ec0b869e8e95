@@ -1,95 +1,117 @@
-"""
-File: craps.py
+import random
 
-This module studies and plays the game of craps.
-"""
-
-from die import Die
-
-class Player(object):
-
+class Player:
     def __init__(self):
-        """Has a pair of dice and an empty rolls list."""
-        self.die1 = Die()
-        self.die2 = Die()
-        self.rolls = []
+        self.roll = ""               # Last roll's string representation
+        self.rollsCount = 0          # Number of rolls made
+        self.atStartup = True        # First roll?
+        self.winner = False          # Has the player won?
+        self.loser = False           # Has the player lost?
+        self.point = 0               # Used after startup roll
 
-    def __str__(self):
-        """Returns a string representation of the list of rolls."""
-        result = ""
-        for (v1, v2) in self.rolls:
-            result = result + str((v1, v2)) + " " +\
-                     str(v1 + v2) + "\n"
-        return result
+    def rollDice(self):
+        """Roll dice once, update game state, and return the tuple of dice values."""
+        if self.winner or self.loser:
+            return None   # Game already over
+
+        die1 = random.randint(1, 6)
+        die2 = random.randint(1, 6)
+        total = die1 + die2
+
+        # Save roll info
+        self.roll = f"({die1}, {die2}) total = {total}"
+        self.rollsCount += 1
+
+        # GAME LOGIC
+        if self.atStartup:
+            if total in (7, 11):
+                self.winner = True
+            elif total in (2, 3, 12):
+                self.loser = True
+            else:
+                self.point = total
+                self.atStartup = False
+        else:
+            # Subsequent rolls
+            if total == self.point:
+                self.winner = True
+            elif total == 7:
+                self.loser = True
+
+        return (die1, die2)
 
     def getNumberOfRolls(self):
-        """Returns the number of the rolls."""
-        return len(self.rolls)
+        return self.rollsCount
 
-    def play(self):
-        """Plays a game, saves the rolls for that game, 
-        and returns True for a win and False for a loss."""
-        self.rolls = []
-        self.die1.roll()
-        self.die2.roll()
-        (v1, v2) = (self.die1.getValue(),
-                    self.die2.getValue())
-        self.rolls.append((v1, v2))
-        initialSum = v1 + v2
-        if initialSum in (2, 3, 12):
-            return False
-        elif initialSum in (7, 11):
-            return True
-        while (True):
-            self.die1.roll()
-            self.die2.roll()
-            (v1, v2) = (self.die1.getValue(),
-                        self.die2.getValue())
-            self.rolls.append((v1, v2))
-            laterSum = v1 + v2
-            if laterSum == 7:
-                return False
-            elif laterSum == initialSum:
-                return True
+    def isWinner(self):
+        return self.winner
+
+    def isLoser(self):
+        return self.loser
+
+
+# ---------------------------------------------------------------
+# Game Driver Functions
+# ---------------------------------------------------------------
 
 def playOneGame():
-    """Plays a single game and prints the results."""
+    """Plays one full game interactively roll by roll."""
     player = Player()
-    youWin = player.play()
-    print(player)
-    if youWin:
+
+    while not (player.isWinner() or player.isLoser()):
+        dice = player.rollDice()
+        print(player.roll)
+
+    if player.isWinner():
         print("You win!")
     else:
         print("You lose!")
 
-def playManyGames(number):
-    """Plays a number of games and prints statistics."""
+    return player.getNumberOfRolls(), player.isWinner()
+
+
+def playManyGames(n):
+    """Simulates n games without printing individual rolls."""
     wins = 0
     losses = 0
-    winRolls = 0
-    lossRolls = 0
-    player = Player()
-    for count in range(number):
-        hasWon = player.play()
-        rolls = player.getNumberOfRolls()
-        if hasWon:
+    totalRollsWin = 0
+    totalRollsLoss = 0
+
+    for _ in range(n):
+        player = Player()
+
+        while not (player.isWinner() or player.isLoser()):
+            player.rollDice()
+
+        if player.isWinner():
             wins += 1
-            winRolls += rolls
+            totalRollsWin += player.getNumberOfRolls()
         else:
             losses += 1
-            lossRolls += rolls
-    print("The total number of wins is", wins)
-    print("The total number of losses is", losses)
-    print("The average number of rolls per win is %0.2f" % \
-          (winRolls / wins))
-    print("The average number of rolls per loss is %0.2f" % \
-          (lossRolls / losses))
-    print("The winning percentage is %0.3f" % (wins / number))
+            totalRollsLoss += player.getNumberOfRolls()
 
-def main():
-    """Plays a number of games and prints statistics."""
-    number = int(input("Enter the number of games: "))
-    playManyGames(number)
+    print(f"The total number of wins is {wins}")
+    print(f"The total number of losses is {losses}")
 
+    if wins > 0:
+        print(f"The average number of rolls per win is {totalRollsWin / wins:.2f}")
+    else:
+        print("No wins recorded.")
+
+    if losses > 0:
+        print(f"The average number of rolls per loss is {totalRollsLoss / losses:.2f}")
+    else:
+        print("No losses recorded.")
+
+    print(f"The winning percentage is {wins / n:.3f}")
+
+
+# ---------------------------------------------------------------
+# Example Execution
+# ---------------------------------------------------------------
 if __name__ == "__main__":
-    main()
+    # Example: play one interactive game
+    playOneGame()
+
+    num = int(input("Enter the number of games: "))
+    playManyGames(num)
