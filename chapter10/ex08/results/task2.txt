@@ -1,0 +1,12 @@
+
+Status: PASSED!
+Check: 1
+Test: The `Card` class contains the `turn` method
+Reason: None
+Timestamp: 2025-12-08 03:04:35.666297
+
+Status: PASSED!
+Check: 2
+Test: The `turn` method turns the card over.
+Reason: None
+Timestamp: 2025-12-08 03:04:35.666394
