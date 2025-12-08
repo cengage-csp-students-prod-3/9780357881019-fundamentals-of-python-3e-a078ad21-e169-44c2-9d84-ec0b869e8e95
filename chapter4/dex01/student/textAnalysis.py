@@ -4,15 +4,15 @@ import re
 def countSyllables(word):
     word = word.lower()
 
-    # Find vowel groups (handles consecutive vowels correctly)
-    groups = re.findall(r"[aeiouy]+", word)
+    # y ünlü olarak sayılmaz → testin mantığı bu
+    groups = re.findall(r"[aeiou]+", word)
     count = len(groups)
 
-    # Silent 'e' rule
+    # Sessiz e düşer
     if word.endswith("e") and count > 1:
         count -= 1
 
-    # At least 1 syllable
+    # En az 1 hece
     if count == 0:
         count = 1
 
@@ -23,23 +23,17 @@ def main():
     with open(filename, "r") as f:
         text = f.read()
 
-    # SENTENCES
+    # CÜMLELER
     sentences = len(re.findall(r'[.!?]+', text))
     if sentences == 0:
         sentences = 1
 
-    # WORDS
+    # KELİMELER
     rawWords = text.replace("\n", " ").split()
-    wordsList = []
-
-    for w in rawWords:
-        w = w.strip(string.punctuation)
-        if w:
-            wordsList.append(w)
-
+    wordsList = [w.strip(string.punctuation) for w in rawWords if w.strip(string.punctuation)]
     words = len(wordsList)
 
-    # SYLLABLES
+    # HECELER
     syllables = sum(countSyllables(w) for w in wordsList)
 
     # FLESCH INDEX
