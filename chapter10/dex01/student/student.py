@@ -26,11 +26,15 @@ class Student(object):
         return self.scores[i - 1]
    
     def getAverageScore(self):
-        """Returns the average score."""
+        """Returns the average score (prevents ZeroDivisionError)."""
+        if len(self.scores) == 0:
+            return 0     # Skor yoksa ortalama 0 döndür
         return sum(self.scores) / len(self.scores)
     
     def getHighScore(self):
         """Returns the highest score."""
+        if len(self.scores) == 0:
+            return 0
         return max(self.scores)
  
     def __str__(self):
@@ -41,7 +45,7 @@ class Student(object):
 def main():
     s = Student("Jack", 0)
     print(s)
-    s.getAverageScore()
+    print("Average score:", s.getAverageScore())
 
 if __name__ == "__main__":
     main()
