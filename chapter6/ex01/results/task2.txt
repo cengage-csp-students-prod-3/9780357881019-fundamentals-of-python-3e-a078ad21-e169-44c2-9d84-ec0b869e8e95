@@ -3,19 +3,19 @@ Status: PASSED!
 Check: 1
 Test: The newton.py program displays both the newton square root and the math square root of 2.
 Reason: None
-Timestamp: 2025-11-25 05:18:59.330884
+Timestamp: 2025-12-08 04:35:39.784306
 
 Status: PASSED!
 Check: 2
 Test: The newton.py program displays both the newton square root and the math square root of 4.
 Reason: None
-Timestamp: 2025-11-25 05:18:59.347943
+Timestamp: 2025-12-08 04:35:39.802181
 
 Status: PASSED!
 Check: 3
 Test: The newton.py program displays both the newton square root and the math square root of 9.
 Reason: None
-Timestamp: 2025-11-25 05:18:59.365123
+Timestamp: 2025-12-08 04:35:39.819297
 
 Status: FAILED!
 Check: 4
@@ -29,4 +29,4 @@ Enter a positive number or enter/return to quit: The program's estimate is 3.741
 Python's estimate is      3.7416573867739413
 Enter a positive number or enter/return to quit: .
 Error : AssertionError - Unable to find a number close enough to 3.162277665175675 (+/-0.00) in the program's output.
-Timestamp: 2025-11-25 05:18:59.382232
+Timestamp: 2025-12-08 04:35:39.836373
