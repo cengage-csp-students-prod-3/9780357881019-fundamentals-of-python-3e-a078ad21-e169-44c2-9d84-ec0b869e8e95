@@ -1,0 +1,12 @@
+
+Status: PASSED!
+Check: 1
+Test: The `Card` class contains the `faceup` attribute.
+Reason: None
+Timestamp: 2025-12-08 03:04:12.198375
+
+Status: PASSED!
+Check: 2
+Test: The `faceup` attribute defaults to `False`.
+Reason: None
+Timestamp: 2025-12-08 03:04:12.198473
