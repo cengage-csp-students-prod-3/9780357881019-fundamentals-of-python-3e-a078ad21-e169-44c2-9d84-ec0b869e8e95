@@ -1,0 +1,12 @@
+
+Status: PASSED!
+Check: 1
+Test: The `__eq__` method returns `True` when two equal student objects are compared.
+Reason: None
+Timestamp: 2025-12-08 00:00:44.929735
+
+Status: PASSED!
+Check: 2
+Test: The `__eq__` method returns `False` when two unequal student objects are compared.
+Reason: None
+Timestamp: 2025-12-08 00:00:44.929852
