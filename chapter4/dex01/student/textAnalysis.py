@@ -3,21 +3,16 @@ import re
 
 def countSyllables(word):
     word = word.lower()
-    vowels = "aeiouy"
-    count = 0
-    prevVowel = False
 
-    for ch in word:
-        if ch in vowels:
-            if not prevVowel:
-                count += 1
-            prevVowel = True
-        else:
-            prevVowel = False
+    # Find vowel groups (handles consecutive vowels correctly)
+    groups = re.findall(r"[aeiouy]+", word)
+    count = len(groups)
 
+    # Silent 'e' rule
     if word.endswith("e") and count > 1:
         count -= 1
 
+    # At least 1 syllable
     if count == 0:
         count = 1
 
