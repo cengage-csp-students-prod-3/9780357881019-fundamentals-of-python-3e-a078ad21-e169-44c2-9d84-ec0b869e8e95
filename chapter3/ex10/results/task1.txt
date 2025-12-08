@@ -3,29 +3,10 @@ Status: PASSED!
 Check: 1
 Test: Program outputs correct values when user inputs 800
 Reason: the correct values were found in the program's output.None
-Timestamp: 2025-12-08 04:05:31.386460
+Timestamp: 2025-12-08 04:08:02.134951
 
-Status: FAILED!
+Status: PASSED!
 Check: 2
 Test: Program outputs correct values when user inputs 1299
-Reason: Output from code did not match:
- 1        1169.10          11.69            53.26            64.95          1104.15
- 2        1104.15          11.04            53.91            64.95          1039.20
- 3        1039.20          10.39            54.56            64.95           974.25
- 4         974.25           9.74            55.21            64.95           909.30
- 5         909.30           9.09            55.86            64.95           844.35
- 6         844.35           8.44            56.51            64.95           779.40
- 7         779.40           7.79            57.16            64.95           714.45
- 8         714.45           7.14            57.81            64.95           649.50
- 9         649.50           6.49            58.46            64.95           584.55
-10         584.55           5.85            59.10            64.95           519.60
-11         519.60           5.20            59.75            64.95           454.65
-12         454.65           4.55            60.40            64.95           389.70
-13         389.70           3.90            61.05            64.95           324.75
-14         324.75           3.25            61.70            64.95           259.80
-15         259.80           2.60            62.35            64.95           194.85
-16         194.85           1.95            63.00            64.95           129.90
-17         129.90           1.30            63.65            64.95            64.95
-18          64.95           0.00            64.95            64.95             0.00
-Error : AssertionError - 
-Timestamp: 2025-12-08 04:05:31.405039
+Reason: the correct values were found in the program's output.None
+Timestamp: 2025-12-08 04:08:02.153481
