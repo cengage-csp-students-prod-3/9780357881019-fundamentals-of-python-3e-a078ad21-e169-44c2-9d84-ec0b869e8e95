@@ -5,11 +5,11 @@ Test: The program displays the correct metrics.
 Reason: Unable to find '["the correct Flesch Index of '72.80706451612906' and metrics"]' in the program's output.
 Enter the filename: Words: 62
 Sentences: 5
-Syllables: 96
-Flesch Index: 63.25545161290327
+Syllables: 94
+Flesch Index: 65.98448387096778
 .
 Error : AssertionError - 
-Timestamp: 2025-11-15 05:24:32.206071
+Timestamp: 2025-12-08 04:20:04.007566
 
 Status: FAILED!
 Check: 2
@@ -17,8 +17,8 @@ Test: The program displays the correct metrics.
 Reason: Unable to find '["the correct Flesch Index of '70.63150000000002' and metrics"]' in the program's output.
 Enter the filename: Words: 50
 Sentences: 4
-Syllables: 84
-Flesch Index: 52.01950000000002
+Syllables: 83
+Flesch Index: 53.71150000000003
 .
 Error : AssertionError - 
-Timestamp: 2025-11-15 05:24:32.224449
+Timestamp: 2025-12-08 04:20:04.030893
