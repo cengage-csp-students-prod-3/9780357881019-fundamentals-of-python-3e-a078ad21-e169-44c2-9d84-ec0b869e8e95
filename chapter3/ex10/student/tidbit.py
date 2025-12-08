@@ -1,41 +1,50 @@
-"""
-Program: tidbit.py
-Author: Your Name
-Displays a payment schedule for TidBit Computer Store credit plan.
-"""
+# tidbit.py
+#
+# TidBit Computer Store credit plan:
+# - 10% down payment
+# - 12% annual interest
+# - Monthly payment = 5% of purchase price
 
-# Sabitler
-DOWN_PAYMENT_RATE = 0.10      # %10 peşinat
-ANNUAL_INTEREST_RATE = 0.12   # %12 yıllık faiz
-MONTHLY_PAYMENT_RATE = 0.05   # %5 aylık ödeme (liste fiyatına göre)
+def main():
+    purchase_price = float(input("Enter the purchase price: "))
 
-# Kullanıcıdan satın alma fiyatını al
-purchase_price = float(input("Enter the purchase price: "))
+    # Sabitler
+    DOWN_PAYMENT_RATE = 0.10
+    ANNUAL_RATE = 0.12
+    MONTHLY_PAYMENT_RATE = 0.05
 
-# Peşinat sonrası bakiye
-balance = purchase_price * (1 - DOWN_PAYMENT_RATE)
+    down_payment = purchase_price * DOWN_PAYMENT_RATE
+    monthly_payment = purchase_price * MONTHLY_PAYMENT_RATE
 
-# Sabit aylık ödeme
-monthly_payment = purchase_price * MONTHLY_PAYMENT_RATE
+    # Başlangıç bakiyesi (peşinat ödenmiş)
+    balance = purchase_price - down_payment
 
-# Tablo başlıkları
-print(f"{'Month':<6}{'Starting Balance':<18}{'Interest to Pay':<18}"
-      f"{'Principal to Pay':<18}{'Payment':<10}{'Ending Balance':<15}")
+    print("Month  Starting Balance  Interest to Pay  Principal to Pay  Payment  Ending Balance")
 
-month = 1
-while balance > 0.005:  # çok küçük bakiye için güvenlik kontrolü
-    interest = round(balance * ANNUAL_INTEREST_RATE / 12, 2)
-    principal = round(monthly_payment - interest, 2)
-    
-    # Eğer principal, kalan bakiyeden büyükse, son ödeme olarak düzelt
-    if principal > balance:
-        principal = round(balance, 2)
-        monthly_payment = round(interest + principal, 2)
-    
-    ending_balance = round(balance - principal, 2)
-    
-    print(f"{month:<6}{balance:>14.2f}{interest:>18.2f}{principal:>18.2f}"
-          f"{monthly_payment:>10.2f}{ending_balance:>15.2f}")
-    
-    balance = ending_balance
-    month += 1
+    month = 1
+    # Borç bitene kadar tabloyu yaz
+    while balance > 0:
+        starting_balance = balance
+
+        # Aylık faiz
+        interest = starting_balance * ANNUAL_RATE / 12
+
+        # O ayki anapara (ödeme – faiz)
+        principal = monthly_payment - interest
+
+        # Örnek tabloda olduğu gibi: bitiş bakiyesi = başlangıç – aylık ödeme
+        ending_balance = starting_balance - monthly_payment
+        if ending_balance < 0:
+            ending_balance = 0.0
+
+        # Satırı yazdır
+        print(f"{month:2d}{starting_balance:14.2f}{interest:15.2f}"
+              f"{principal:17.2f}{monthly_payment:11.2f}{ending_balance:15.2f}")
+
+        # Sonraki ay için güncelle
+        balance = ending_balance
+        month += 1
+
+
+if __name__ == "__main__":
+    main()
